@@ -1,44 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ehsan Ullah - DevOps Portfolio</title>
   <style>
-    body { font-family: Arial; margin: 40px; background: #f4f4f4; }
-    .container { background: white; padding: 20px; border-radius: 8px; max-width: 800px; margin: auto; }
-    h1 { color: #2c3e50; }
-    a { color: #2980b9; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      font-size: 2.5em;
+    }
+    h2 {
+      color: #34495e;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+    p, li {
+      font-size: 1em;
+      line-height: 1.6;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li::before {
+      content: "✔️ ";
+      margin-right: 6px;
+      color: #2ecc71;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .section {
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>👨‍💻 Ehsan Ullah - DevOps Engineer</h1>
-    <p>Welcome to my professional DevOps portfolio. Here, I showcase my labs, certifications, projects, and articles.</p>
 
-    <h2>📦 Labs</h2>
-    <ul>
-      <li><a href="Devops_labs/">View Labs</a></li>
-    </ul>
+    <div class="section">
+      <h2>About Me</h2>
+      <p>
+        I’m a passionate DevOps Engineer with hands-on experience in Kubernetes, Docker, AWS, GitHub Actions, and Linux. As a <strong>Kubestronaut</strong> and <strong>AWS Certified Solutions Architect</strong>, I bring expertise in multi-cloud deployments, CI/CD automation, and infrastructure as code.
+        I love solving real-world problems through automation and scalability.
+      </p>
+    </div>
 
-    <h2>🎓 Certifications</h2>
-    <ul>
-      <li><a href="Certifications/">View Certifications</a></li>
-    </ul>
+    <div class="section">
+      <h2>📦 Labs</h2>
+      <ul>
+        <li><a href="Labs/">View DevOps Labs</a></li>
+      </ul>
+    </div>
 
-    <h2>🚀 Projects</h2>
-    <ul>
-      <li><a href="https://github.com/ehsanullah/opentelemetry-demo" target="_blank" rel="noopener noreferrer">OpenTelemetry Monitoring Project</a></li>
-    </ul>
+    <div class="section">
+      <h2>🎓 Certifications</h2>
+      <ul>
+        <li>Certified Kubernetes Administrator (CKA)</li>
+        <li>AWS Solutions Architect Associate</li>
+        <li>Kubestronaut – KubeAcademy</li>
+        <li>Hands-on experience with Docker, GitHub Actions, and Linux</li>
+        <li><a href="Certifications/">View Certifications</a></li>
+      </ul>
+    </div>
 
-    <h2>✍️ Articles</h2>
-    <ul>
-      <li><a href="Blogs/">DevOps Blog Articles</a></li>
-      <li><a href="https://linkedin.com/in/ehsanullah" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>
-    </ul>
+    <div class="section">
+      <h2>🚀 Projects</h2>
+      <ul>
+        <li><a href="https://github.com/ehsanullah/opentelemetry-demo" target="_blank">OpenTelemetry Monitoring Project (GitHub)</a></li>
+        <li><a href="Projects/">More Projects Coming Soon</a></li>
+      </ul>
+    </div>
 
-    <h2>📄 Resume</h2>
-    <p><a href="resume/EhsanUllah-Resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume (PDF)</a></p>
+    <div class="section">
+      <h2>✍️ Articles</h2>
+      <ul>
+        <li><a href="Blogs/">DevOps Blog Articles</a></li>
+        <li><a href="https://www.linkedin.com/in/ehsanullah-devops" target="_blank">LinkedIn Profile</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📄 Resume</h2>
+      <p><a href="resume/EhsanUllah-Resume.pdf" target="_blank">Download My Resume (PDF)</a></p>
+    </div>
   </div>
 </body>
 </html>
-
