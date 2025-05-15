@@ -12,22 +12,25 @@ Visit my GitHub Pages portfolio site here:
 ---
 
 ## 📂 Repository Structure
+index.html – Main portfolio homepage for GitHub Pages
 
-- `index.html` – Main portfolio homepage for GitHub Pages  
-- `/resume` – Contains my latest resume PDF  
-- `/Devops_labs` – Business lab exercises and projects demonstrating DevOps skills  
-- `/Certifications` – Certificates and related documents  
-- `/Blogs` – Markdown or HTML versions of LinkedIn articles and blog posts  
-- `/assets` – Images, CSS, or other supporting files for the site
+- **/resume** – Contains my latest resume in PDF format
 
----
+- /**Certifications** - Verified certification of different tools
 
-## About Me
+- /**Projects** – Real-world DevOps and cloud-native projects with full implementation
 
-👨‍💻 Ehsan Ullah
-DevOps Engineer with 1+ years of hands-on experience in Linux, MacOS, Docker, Kubernetes, Multi-Cloud environments (AWS & Azure), Terraform , and CI/CD (GitHub Actions).
+- /**Labs** – Hands-on labs across DevOps, Cloud, ML and AI technologies
 
-Certified Kubestronaut (5x K8s) and AWS Solutions Architect Associate, skilled in cloud automation, scalable CI/CD pipelines, infrastructure as code, and driving continuous delivery and operational excellence.
+- /**Blogs** – Includes DevOps articles, blogs, and Medium posts authored by me
+
+- /**assets** – Supporting files such as images and stylesheets
+
+## 👨‍💻 About Me
+
+A passionate Cloud DevOps Engineer with a strong academic foundation in AIOps and hands-on expertise across DevOps, MLOps, AI, and Cloud Security.
+
+I specialize in building scalable, automated, and secure cloud-native systems. With a focus on end-to-end SDLC, I leverage tools like Kubernetes, CI/CD pipelines, and Infrastructure as Code to integrate DevOps with AI-driven operations and security best practices.
 
 ---
 
