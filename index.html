@@ -1,89 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ehsan Ullah - DevOps Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ehsan Ullah - Cloud DevOps Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   <link rel="stylesheet" href="styles/main.css" />
 </head>
-
 <body>
-  <div class="container">
-    <h1><i class="fas fa-terminal"></i> Ehsan Ullah - Cloud DevOps Engineer</h1>
-    <p style="text-align: center;">
-      Welcome to my professional Cloud DevOps portfolio. Explore my Labs, Certifications, Projects, Articles, Resume, and Social Media.
-    </p>
+  <header>
+    <div class="container">
+      <h1>
+        <i class="fas fa-terminal"></i> Ehsan Ullah
+        <span class="subtitle">Cloud & DevOps Engineer</span>
+      </h1>
+    </div>
+  </header>
 
-    <div>
-      <h2><i class="fas fa-user section-icon"></i> About Me</h2>
+  <main class="container">
+    <section class="intro">
       <p>
-        I’m a results-driven <span class="highlight">Cloud & DevOps Engineer</span> with a deep passion for automation, system reliability, and intelligent operations.
-        As a certified <span class="highlight">Kubestronaut</span> and <span class="highlight">AIOps enthusiast</span>, I thrive in designing resilient, zero-downtime systems across <span class="highlight">multi-cloud environments</span> (AWS, Azure).
-        <br /><br />
-        My expertise spans <span class="highlight">cloud migration strategies</span>, <span class="highlight">FinOps for cloud cost optimization</span>, and implementing <span class="highlight">secure, scalable CI/CD pipelines</span> using Infrastructure as Code (IaC).
-        I bring an evolving interest in <span class="highlight">MLOps</span>, combining machine learning practices with modern DevOps to drive intelligent and self-healing infrastructure.
+        Welcome to my professional Cloud DevOps portfolio. Explore my Labs,
+        Certifications, Projects, Articles, Resume, and Social Media.
       </p>
-    </div>
+    </section>
 
-    <div>
-      <h2><i class="fas fa-graduation-cap section-icon"></i> Education</h2>
-      <ul>
-        <li><strong>RQF Level 6 Diploma in Artificial Intelligence Operations (AIOps)</strong> — EduQual UK, 2025 <span class="highlight">(86%)</span></li>
-        <li><strong>Intermediate Pre-Engineering</strong> — Tameer-i-Nau College, Quetta, 2020 <span class="highlight">(85%)</span></li>
-      </ul>
-    </div>
+    <section>
+      <h2>
+        <i class="fas fa-graduation-cap section-icon"></i> Education
+      </h2>
+      <div class="cards">
+        <div class="card">
+          <h3>RQF Level 6 Diploma in Artificial Intelligence Operations (AIOps)</h3>
+          <p><strong>EduQual UK, 2025</strong></p>
+          <span class="percentage">86%</span>
+        </div>
 
-    <div>
-      <h2><i class="fas fa-flask section-icon"></i> Labs</h2>
-      <ul>
-        <li><a href="Labs/">Explore DevOps Labs</a></li>
-      </ul>
-    </div>
+        <div class="card">
+          <h3>Intermediate Pre-Engineering</h3>
+          <p><strong>Tameer-i-Nau College, Quetta, 2020</strong></p>
+          <span class="percentage">85%</span>
+        </div>
+      </div>
+    </section>
 
-    <div>
-      <h2><i class="fas fa-certificate section-icon"></i> Certifications</h2>
-      <ul>
-        <li><a href="Certifications/ehsan-ullah-CKA-certificate.pdf" target="_blank">✅ Certified Kubernetes Administrator (CKA)</a></li>
-        <li><a href="Certifications/ehsan-ullah-CKAD-certificate.pdf" target="_blank">✅ Certified Kubernetes Application Developer (CKAD)</a></li>
-        <li><a href="Certifications/ehsan-ullah-KCNA-certificate.pdf" target="_blank">✅ Kubernetes and Cloud Native Associate (KCNA)</a></li>
-      </ul>
-    </div>
+    <section>
+      <h2>
+        <i class="fas fa-certificate section-icon"></i> Certifications
+      </h2>
+      <div class="cards">
+        <a href="Certifications/ehsan-ullah-CKA-certificate.pdf" target="_blank" class="card clickable">
+          <i class="fas fa-check-circle"></i>
+          Certified Kubernetes Administrator (CKA)
+        </a>
+        <a href="Certifications/ehsan-ullah-CKAD-certificate.pdf" target="_blank" class="card clickable">
+          <i class="fas fa-check-circle"></i>
+          Certified Kubernetes Application Developer (CKAD)
+        </a>
+        <a href="Certifications/ehsan-ullah-KCNA-certificate.pdf" target="_blank" class="card clickable">
+          <i class="fas fa-check-circle"></i>
+          Kubernetes and Cloud Native Associate (KCNA)
+        </a>
+      </div>
+    </section>
 
-    <div>
-      <h2><i class="fas fa-rocket section-icon"></i> Projects</h2>
-      <ul>
-        <li><a href="https://github.com/ahsankhan420/opentelemetry-app" target="_blank">OpenTelemetry Monitoring Project (GitHub)</a></li>
-        <li><a href="Projects/">View More Projects</a></li>
-      </ul>
-    </div>
+    <section>
+      <h2>
+        <i class="fas fa-rocket section-icon"></i> Projects
+      </h2>
+      <div class="cards">
+        <a href="https://github.com/ahsankhan420/opentelemetry-app" target="_blank" class="card clickable">
+          <i class="fas fa-code"></i> OpenTelemetry Monitoring Project
+        </a>
+        <a href="Projects/" class="card clickable">
+          <i class="fas fa-folder-open"></i> View More Projects
+        </a>
+      </div>
+    </section>
 
-    <div>
-      <h2><i class="fas fa-pen-nib section-icon"></i> Articles</h2>
-      <ul>
-        <li><a href="Blogs/">Read My DevOps Articles</a></li>
-      </ul>
-    </div>
+    <section>
+      <h2>
+        <i class="fas fa-pen-nib section-icon"></i> Articles
+      </h2>
+      <a href="Blogs/" class="card clickable">
+        <i class="fas fa-book"></i> Read My DevOps Articles
+      </a>
+    </section>
 
-    <div>
-      <h2><i class="fas fa-share-alt section-icon"></i> Social Media</h2>
-      <ul>
-        <li><a href="https://www.linkedin.com/in/ehsan-khan-devops" target="_blank">LinkedIn Profile</a></li>
-      </ul>
-    </div>
+    <section>
+      <h2>
+        <i class="fas fa-share-alt section-icon"></i> Social Media
+      </h2>
+      <a href="https://www.linkedin.com/in/ehsan-khan-devops" target="_blank" class="card clickable">
+        <i class="fab fa-linkedin"></i> LinkedIn Profile
+      </a>
+    </section>
 
-    <div>
-      <h2><i class="fas fa-file-alt section-icon"></i> Resume</h2>
-      <p><a href="resume/Ehsan_DevOps_1YoE.pdf" target="_blank">📄 Download My Resume (PDF)</a></p>
+    <section>
+      <h2>
+        <i class="fas fa-file-alt section-icon"></i> Resume
+      </h2>
+      <a href="resume/Ehsan_DevOps_1YoE.pdf" target="_blank" class="card clickable">
+        <i class="fas fa-download"></i> Download My Resume (PDF)
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Ehsan Ullah. All rights reserved.</p>
     </div>
-  </div>
+  </footer>
 </body>
-
 </html>
+
 
 
 
