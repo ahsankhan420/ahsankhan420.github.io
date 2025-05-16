@@ -5,77 +5,104 @@
   box-sizing: border-box;
 }
 
-/* Fonts & Background */
+/* Fonts */
 body {
   font-family: 'Inter', sans-serif;
-  background: #f5f7fa;
-  color: #2e2e2e;
+  background: #fafbfc;
+  color: #2a2a2a;
   min-height: 100vh;
-  line-height: 1.6;
-  padding: 20px 15px;
+  padding: 2rem 1rem;
   position: relative;
   overflow-x: hidden;
 }
 
-/* AI Abstract Background Shape */
-.background-shape {
+/* AI Themed Abstract Background */
+.ai-background {
   position: fixed;
-  top: -150px;
-  left: -150px;
+  top: -200px;
+  right: -150px;
   width: 600px;
   height: 600px;
-  background: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.4;
+  background: radial-gradient(circle at center, #a1cdf1 0%, #d1e6fb 70%, transparent 100%);
+  filter: blur(100px);
+  opacity: 0.3;
   z-index: 0;
   pointer-events: none;
-  transform: rotate(45deg);
+  transform: rotate(15deg);
 }
 
+/* Container with subtle 3D shadow */
 .container {
   max-width: 900px;
-  margin: 40px auto;
-  padding: 40px 50px;
-  background: #ffffff;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  background: #fff;
   border-radius: 20px;
   box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.1),
-    0 4px 15px rgba(139, 198, 236, 0.3),
-    0 0 40px rgba(149, 153, 226, 0.3);
+    0 12px 24px rgba(0, 0, 0, 0.1),
+    0 0 40px rgba(161, 205, 241, 0.5),
+    inset 0 0 30px rgba(209, 230, 251, 0.4);
   position: relative;
   z-index: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container:hover {
-  transform: translateY(-10px) scale(1.03);
+  transform: translateY(-12px) scale(1.04);
   box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.15),
-    0 8px 30px rgba(139, 198, 236, 0.5),
-    0 0 50px rgba(149, 153, 226, 0.6);
+    0 18px 38px rgba(0, 0, 0, 0.15),
+    0 0 60px rgba(161, 205, 241, 0.7),
+    inset 0 0 40px rgba(209, 230, 251, 0.6);
 }
 
-h1 {
-  font-size: 3rem;
+/* Title with 3D Text Shadow */
+.title {
   font-weight: 700;
-  color: #3a3a8c;
+  font-size: 3.2rem;
   text-align: center;
-  margin-bottom: 30px;
-  text-shadow: 0 0 8px #8bc6ec;
+  margin-bottom: 1rem;
+  color: #1a2a55;
+  text-shadow:
+    1.5px 1.5px 2px #a1cdf1,
+    2.5px 2.5px 3px #7bb0e8;
 }
 
+.title .subtitle {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #5a7294;
+  margin-left: 10px;
+}
+
+/* Intro paragraph */
+.intro {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #3b4a6b;
+  margin-bottom: 3rem;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
+
+/* Section Headings */
 h2 {
   font-size: 2rem;
-  border-left: 6px solid #8bc6ec;
-  padding-left: 14px;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  color: #4a4a90;
-  text-shadow: 0 0 5px #9599e2;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  color: #2a3b6e;
+  margin-bottom: 1rem;
+  border-left: 6px solid #7bb0e8;
+  padding-left: 16px;
+  text-shadow: 1px 1px 2px #cde6ff;
+  display: inline-block;
+  user-select: none;
+}
+
+/* Section Paragraphs and Lists */
+section p,
+section ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #424a5d;
+  margin-bottom: 2rem;
 }
 
 ul {
@@ -83,5 +110,85 @@ ul {
   padding-left: 0;
 }
 
-li {
-  margin:
+ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e9f2;
+  color: #37435a;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #4677d5;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+ul li a:hover {
+  color: #1a2a55;
+  text-decoration: underline;
+}
+
+/* Highlights */
+.highlight {
+  color: #4677d5;
+  font-weight: 600;
+  text-shadow:
+    0 0 3px #a1cdf1,
+    0 0 7px #7bb0e8;
+}
+
+/* Kubernetes Icon + Text */
+.kubestronaut {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #326ce5;
+  text-shadow:
+    0 0 5px #326ce5;
+  font-size: 1.2rem;
+}
+
+.kubestronaut .devicon-kubernetes-plain {
+  font-size: 2rem;
+  color: #326ce5;
+  filter: drop-shadow(0 0 3px #74b3ff);
+}
+
+/* Social Media Icons */
+.social-media ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-media i {
+  font-size: 1.3rem;
+  color: #4677d5;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover i {
+  color: #1a2a55;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
