@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +6,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Fonts */
 body {
   font-family: 'Inter', sans-serif;
   background: #fafbfc;
@@ -16,17 +17,44 @@ body {
   overflow-x: hidden;
 }
 
-/* Clickable Elements Fix */
-a, .clickable {
+/* AI Background */
+.ai-background {
+  position: fixed;
+  top: -200px;
+  right: -150px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle at center, #a1cdf1 0%, #d1e6fb 70%, transparent 100%);
+  filter: blur(100px);
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+  transform: rotate(15deg);
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 3rem 4rem;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1),
+              0 0 40px rgba(161, 205, 241, 0.5),
+              inset 0 0 30px rgba(209, 230, 251, 0.4);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Click Fixes */
+.clickable, a {
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
-  text-decoration: none;
-  color: inherit;
-  display: block;
 }
 
-a::before, .clickable::before {
+.clickable::after, a::after {
   content: '';
   position: absolute;
   top: -10px;
@@ -36,15 +64,13 @@ a::before, .clickable::before {
   z-index: 1;
 }
 
-/* Tech Stack Grid */
+/* Tech Stack */
 .tech-stack {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   gap: 1.5rem;
   margin: 2rem 0;
   padding: 1rem;
-  background: rgba(161, 205, 241, 0.05);
-  border-radius: 15px;
 }
 
 .tech-stack i {
@@ -53,7 +79,7 @@ a::before, .clickable::before {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -65,83 +91,50 @@ a::before, .clickable::before {
   box-shadow: 0 8px 20px rgba(74, 144, 226, 0.2);
 }
 
-/* Click Interaction Improvements */
-ul li {
-  position: relative;
-  z-index: 2;
-}
-
-ul li a {
+/* Clickable Items */
+ul li.clickable {
   padding: 15px 20px;
-  margin: -15px -20px;
+  margin: 8px 0;
+  background: rgba(161, 205, 241, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-.clickable-area {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-/* Resume Card Fix */
-.resume-card {
-  position: relative;
-  overflow: visible;
-}
-
-.resume-card::after {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  z-index: 0;
+ul li.clickable a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Hover States */
 @media (hover: hover) {
-  ul li:hover, .resume-card:hover {
-    transform: translateX(5px);
-    transition: transform 0.2s ease;
+  ul li.clickable:hover {
+    transform: translateX(10px);
+    background: rgba(161, 205, 241, 0.1);
   }
 }
 
-/* Active State Feedback */
-a:active, .clickable:active {
+/* Active States */
+ul li.clickable:active,
+.resume-card:active {
   transform: scale(0.98);
   opacity: 0.9;
 }
 
-/* Certification Links */
-.certifications li a {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: rgba(161, 205, 241, 0.05);
-  border-radius: 8px;
-  transition: all 0.2s ease;
+/* Resume Card */
+.resume-card {
+  position: relative;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e6f0ff 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  overflow: visible;
+  transition: all 0.3s ease;
 }
 
-.certifications li a:hover {
-  background: rgba(161, 205, 241, 0.1);
-}
-
-/* Social Media Links */
-.social-media li a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 15px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-}
-
-.social-media li a:hover {
-  background: rgba(161, 205, 241, 0.1);
+.resume-card:hover {
+  transform: translateY(-5px);
 }
 
 /* Z-index Fixes */
@@ -150,6 +143,21 @@ a:active, .clickable:active {
   z-index: 2;
 }
 
-.ai-background {
-  z-index: 0;
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    margin: 2rem auto;
+  }
+  
+  .tech-stack {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+  
+  ul li.clickable {
+    padding: 12px;
+  }
 }
+
+/* Existing styles for other elements remain unchanged below this line */
+/* ... (rest of your existing CSS styles) ... */
