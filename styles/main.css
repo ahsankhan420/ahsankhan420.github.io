@@ -159,5 +159,14 @@ ul li.clickable:active,
   }
 }
 
+/* Fix clickable active state */
+.clickable:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+  transition: transform 0.1s ease, opacity 0.1s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Existing styles for other elements remain unchanged below this line */
 /* ... (rest of your existing CSS styles) ... */
