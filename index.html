@@ -3,51 +3,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ehsan's Portfolio</title>
+  <title>Ehsan Ullah - DevOps Portfolio</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f8f9fa;
-      color: #333;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 960px;
+      margin: 50px auto;
+      padding: 40px;
+      background: #1e293b;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #38bdf8;
+      font-family: 'Fira Code', monospace;
     }
     h2 {
-      color: #007acc;
+      margin-top: 40px;
+      font-size: 1.6rem;
+      border-bottom: 2px solid #334155;
+      padding-bottom: 8px;
+      color: #7dd3fc;
+      font-family: 'Fira Code', monospace;
     }
-    .resume-section {
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 600px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    ul {
+      list-style: none;
+      padding-left: 0;
     }
-    .download-btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #007acc;
-      color: white;
+    li::before {
+      content: "➤ ";
+      margin-right: 6px;
+      color: #60a5fa;
+    }
+    a {
       text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s;
+      color: #38bdf8;
+      transition: color 0.2s;
     }
-    .download-btn:hover {
-      background-color: #005f99;
+    a:hover {
+      text-decoration: underline;
+      color: #0ea5e9;
+    }
+    p, li {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #4ade80;
+    }
+    .resume-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #38bdf8;
+      color: #0f172a;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .resume-button:hover {
+      background-color: #0ea5e9;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>👨‍💻 Ehsan Ullah - Cloud DevOps Engineer</h1>
+    <p style="text-align: center;">Welcome to my professional Cloud DevOps portfolio. Explore my Labs, Certifications, Projects, Articles, Resume, and Social Media.</p>
 
-  <div class="resume-section">
-    <h2>📄 Resume</h2>
-    <p>
-      <a class="download-btn" href="https://ahsankhan420.github.io/resume/Ehsan_DevOps_1YoE.pdf" 
-         target="_blank" rel="noopener noreferrer">
-        Download My Resume (PDF)
-      </a>
-    </p>
+    <div>
+      <h2>💡 About Me</h2>
+      <p>
+        I’m a results-driven <span class="highlight">Cloud & DevOps Engineer</span> with a deep passion for automation, system reliability, and intelligent operations. 
+        As a certified <span class="highlight">Kubestronaut</span> and <span class="highlight">AIOps enthusiast</span>, I thrive in designing resilient, zero-downtime systems across <span class="highlight">multi-cloud environments</span> (AWS, Azure).
+        <br><br>
+        My expertise spans <span class="highlight">cloud migration strategies</span>, <span class="highlight">FinOps for cloud cost optimization</span>, and implementing <span class="highlight">secure, scalable CI/CD pipelines</span> using Infrastructure as Code (IaC).
+        I bring an evolving interest in <span class="highlight">MLOps</span>, combining machine learning practices with modern DevOps to drive intelligent and self-healing infrastructure.
+      </p>
+    </div>
+
+    <div>
+      <h2>📦 Labs</h2>
+      <ul>
+        <li><a href="Labs/">Explore DevOps Labs</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>🎓 Certifications</h2>
+      <ul>
+        <li><a href="Certifications/ehsan-ullah-CKA-certificate.pdf" target="_blank">✅ Certified Kubernetes Administrator (CKA)</a></li>
+        <li><a href="Certifications/ehsan-ullah-CKAD-certificate.pdf" target="_blank">✅ Certified Kubernetes Application Developer (CKAD)</a></li>
+        <li><a href="Certifications/ehsan-ullah-KCNA-certificate.pdf" target="_blank">✅ Kubernetes and Cloud Native Associate (KCNA)</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>🚀 Projects</h2>
+      <ul>
+        <li><a href="https://github.com/ahsankhan420/opentelemetry-app" target="_blank">OpenTelemetry Monitoring Project (GitHub)</a></li>
+        <li><a href="Projects/">View More Projects</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>✍️ Articles</h2>
+      <ul>
+        <li><a href="Blogs/">Read My DevOps Articles</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>🔗 Social Media</h2>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/ehsan-khan-devops" target="_blank">LinkedIn Profile</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>📄 Resume</h2>
+      <p>You can view or download my resume below:</p>
+      <a href="resume/Ehsan_DevOps_1YoE.pdf" target="_blank" class="resume-button">📥 Download My Resume (PDF)</a>
+    </div>
   </div>
-
 </body>
 </html>
+
 
