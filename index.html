@@ -2,150 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ehsan Ullah | 3D DevOps Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ehsan Ullah - DevOps Portfolio</title>
   
   <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <!-- Cyber Grid Background -->
-  <div class="cyber-grid"></div>
-  
-  <!-- Floating Particles -->
-  <div class="particles-container">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-  </div>
+  <div class="cyber-gradient"></div>
+  <div class="particle-network"></div>
 
-  <main class="container">
-    <!-- Header Section -->
-    <header class="cyber-header">
-      <div class="hologram-wrapper">
-        <div class="hologram-effect"></div>
-        <h1 class="cyber-title">
-          <span class="cyber-glitch">Ehsan_</span>Ullah<span class="terminal-cursor">_</span>
+  <div class="container">
+    <header class="hero">
+      <div class="hero-content">
+        <div class="avatar-container">
+          <div class="avatar-glow"></div>
+          <i class="fas fa-rocket avatar-icon"></i>
+        </div>
+        <h1 class="title">
+          <span class="gradient-text">Ehsan Ullah</span>
+          <span class="subtitle">Cloud DevOps Engineer</span>
         </h1>
-        <p class="cyber-subtitle">Full-Stack DevOps Architect</p>
-        <div class="cyber-line"></div>
+        <p class="intro">Architecting cloud-native solutions with precision and scale</p>
       </div>
     </header>
 
     <!-- About Section -->
-    <section class="section-3d">
-      <div class="neon-border"></div>
-      <div class="section-content">
-        <h2 class="cyber-heading">
-          <i class="fas fa-terminal"></i> About_Me
-          <span class="scanline"></span>
-        </h2>
-        <p class="cyber-text">
-          Building <span class="glow-text">self-healing cloud ecosystems</span> through
-          <span class="gradient-text">AI-powered orchestration</span> and
-          <span class="glow-text">zero-trust security frameworks</span>
-        </p>
-        
-        <!-- DevOps Toolchain -->
-        <div class="tool-grid">
-          <div class="tool-card" style="--rotate: -2deg">
-            <i class="devicon-kubernetes-plain colored"></i>
-            <span>K8s Clusters</span>
-            <div class="card-reflect"></div>
-          </div>
-          <div class="tool-card" style="--rotate: 1deg">
-            <i class="devicon-terraform-plain colored"></i>
-            <span>IaC</span>
-            <div class="card-reflect"></div>
-          </div>
-          <div class="tool-card" style="--rotate: -1deg">
-            <i class="devicon-ansible-plain colored"></i>
-            <span>Automation</span>
-            <div class="card-reflect"></div>
-          </div>
-          <div class="tool-card" style="--rotate: 2deg">
-            <i class="devicon-docker-plain colored"></i>
-            <span>Containers</span>
-            <div class="card-reflect"></div>
-          </div>
-          <div class="tool-card" style="--rotate: -3deg">
-            <i class="devicon-jenkins-line colored"></i>
-            <span>CI/CD</span>
-            <div class="card-reflect"></div>
-          </div>
-          <div class="tool-card" style="--rotate: 3deg">
-            <i class="devicon-prometheus-original colored"></i>
-            <span>Monitoring</span>
-            <div class="card-reflect"></div>
-          </div>
+    <section class="card about">
+      <h2 class="section-title">
+        <i class="fas fa-terminal"></i>
+        About Me
+        <span class="title-accent"></span>
+      </h2>
+      <div class="neon-divider"></div>
+      <p class="about-text">
+        I specialize in building <span class="highlight">self-healing cloud architectures</span> and 
+        <span class="highlight">CI/CD pipelines</span> that ensure zero-downtime deployments. 
+        My solutions combine <span class="k8s-highlight">Kubernetes orchestration</span> with 
+        <span class="ai-highlight">ML-driven observability</span>.
+      </p>
+      <div class="tech-stack">
+        <div class="tech-item" data-tooltip="Kubernetes">
+          <i class="devicon-kubernetes-plain colored"></i>
+        </div>
+        <div class="tech-item" data-tooltip="Terraform">
+          <i class="devicon-terraform-plain colored"></i>
+        </div>
+        <div class="tech-item" data-tooltip="GitLab CI">
+          <i class="devicon-gitlab-plain colored"></i>
+        </div>
+        <div class="tech-item" data-tooltip="Prometheus">
+          <i class="devicon-prometheus-original colored"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="card education">
+      <h2 class="section-title">
+        <i class="fas fa-graduation-cap"></i>
+        Education
+        <span class="title-accent"></span>
+      </h2>
+      <div class="neon-divider"></div>
+      <div class="timeline">
+        <div class="timeline-item hologram">
+          <i class="fas fa-university timeline-icon"></i>
+          <h3>RQF Level 6 Diploma in AIOps</h3>
+          <p>EduQual UK, 2025 (86%)</p>
+        </div>
+        <div class="timeline-item hologram">
+          <i class="fas fa-flask timeline-icon"></i>
+          <h3>Pre-Engineering</h3>
+          <p>Tameer-i-Nau College, 2020 (85%)</p>
         </div>
       </div>
     </section>
 
     <!-- Certifications Section -->
-    <section class="section-3d floating-section">
-      <div class="neon-border"></div>
-      <div class="section-content">
-        <h2 class="cyber-heading">
-          <i class="fas fa-certificate"></i> Certifications
-          <span class="scanline"></span>
-        </h2>
-        <div class="cert-grid">
-          <a href="Certifications/ehsan-ullah-CKA-certificate.pdf" class="cert-card cert-card-3d">
-            <div class="cert-glare"></div>
-            <i class="devicon-kubernetes-plain"></i>
-            <h3>Certified Kubernetes Administrator</h3>
-            <p>Cloud Native Security Expert</p>
-            <div class="cert-ribbon">VALID</div>
-          </a>
-          <!-- Add other certification cards similarly -->
-        </div>
+    <section class="card certifications">
+      <h2 class="section-title">
+        <i class="fas fa-certificate"></i>
+        Certifications
+        <span class="title-accent"></span>
+      </h2>
+      <div class="neon-divider"></div>
+      <div class="cert-grid">
+        <a href="#" class="cert-card hologram" target="_blank">
+          <i class="devicon-kubernetes-plain colored"></i>
+          <h3>Aspiring Kubestronaut</h3>
+          <p>Kubernetes Mastery Program</p>
+        </a>
+        <!-- Other cert cards same structure -->
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="section-3d floating-section">
-      <div class="neon-border"></div>
-      <div class="section-content">
-        <h2 class="cyber-heading">
-          <i class="fas fa-cubes"></i> Projects
-          <span class="scanline"></span>
-        </h2>
-        <div class="project-grid">
-          <a href="https://github.com/ahsankhan420/opentelemetry-app" class="project-card holographic-card">
-            <div class="hologram-overlay"></div>
-            <i class="fas fa-project-diagram"></i>
-            <h3>Distributed Tracing</h3>
-            <p>OpenTelemetry Implementation</p>
-          </a>
-          <!-- More project cards -->
-        </div>
+    <!-- Other sections follow similar structure -->
+
+    <section class="card resume">
+      <h2 class="section-title">
+        <i class="fas fa-id-card"></i>
+        Resume
+        <span class="title-accent"></span>
+      </h2>
+      <div class="neon-divider"></div>
+      <div class="resume-container hologram">
+        <div class="resume-glow"></div>
+        <i class="fas fa-file-pdf resume-icon"></i>
+        <h3>Interactive Resume</h3>
+        <a href="resume/Ehsan_DevOps_1YoE.pdf" class="download-btn" target="_blank">
+          <i class="fas fa-cloud-download-alt"></i>
+          Download PDF
+        </a>
       </div>
     </section>
-
-    <!-- Resume Section -->
-    <section class="section-3d resume-section">
-      <div class="neon-border"></div>
-      <div class="section-content">
-        <div class="resume-card-3d" onclick="window.open('resume/Ehsan_DevOps_1YoE.pdf', '_blank')">
-          <div class="resume-hologram">
-            <div class="hologram-pattern"></div>
-            <div class="resume-content">
-              <i class="fas fa-id-card-alt"></i>
-              <h3>Interactive Resume</h3>
-              <p>Tap to Access Full Credentials</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Other Sections Follow Similar Structure -->
-
-  </main>
+  </div>
 </body>
 </html>

@@ -1,208 +1,198 @@
 :root {
-  --cyber-blue: #00f3ff;
-  --neon-purple: #bc13fe;
-  --matrix-green: #0f0;
-  --hologram-blue: rgba(0, 143, 255, 0.4);
-  --cyber-bg: #0a0e17;
+  --primary: #4a90e2;
+  --secondary: #6c5ce7;
+  --accent: #00ff88;
+  --cyber-gradient: linear-gradient(45deg, #4a90e2, #6c5ce7);
 }
 
-/* Cyber Background */
 body {
-  background: var(--cyber-bg);
-  color: #fff;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Inter', sans-serif;
+  background: #0a192f;
+  color: #ccd6f6;
   min-height: 100vh;
-  perspective: 1000px;
   overflow-x: hidden;
 }
 
-.cyber-grid {
+/* Cyber Gradient Background */
+.cyber-gradient {
   position: fixed;
-  width: 200vw;
-  height: 200vh;
-  background: 
-    linear-gradient(to right, rgba(0, 243, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
-  background-size: 30px 30px;
-  transform: rotateX(60deg) rotateZ(45deg);
-  pointer-events: none;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--cyber-gradient);
+  opacity: 0.1;
+  animation: gradientFlow 20s ease infinite;
+  z-index: -1;
 }
 
-/* 3D Sections */
-.section-3d {
-  background: linear-gradient(145deg, #0d1219 0%, #13182a 100%);
-  border-radius: 15px;
+@keyframes gradientFlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Particle Network Animation */
+.particle-network {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(var(--primary) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 2rem;
-  margin: 3rem 0;
+  position: relative;
+}
+
+/* Card Design */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transform-style: preserve-3d;
-  box-shadow: 
-    0 0 30px rgba(0, 243, 255, 0.1),
-    0 10px 40px rgba(0, 0, 0, 0.3),
-    inset 0 0 20px rgba(0, 243, 255, 0.1);
-  position: relative;
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.section-3d:hover {
-  transform: translateZ(20px) rotateX(2deg) rotateY(2deg);
-}
-
-.neon-border {
-  position: absolute;
-  inset: 0;
-  border-radius: 15px;
-  padding: 2px;
-  background: linear-gradient(45deg, 
-    var(--cyber-blue) 0%,
-    var(--neon-purple) 50%,
-    var(--cyber-blue) 100%);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* Tool Grid */
-.tool-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.tool-card {
-  background: linear-gradient(145deg, #151c2b 0%, #1a233a 100%);
-  padding: 1.5rem;
-  border-radius: 10px;
-  text-align: center;
-  transform: rotate(var(--rotate));
-  box-shadow: 
-    0 5px 15px rgba(0, 0, 0, 0.3),
-    0 0 10px var(--hologram-blue);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  position: relative;
 }
 
-.tool-card i {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 15px currentColor;
+.card:hover {
+  transform: translateY(-5px) rotateX(1deg) rotateY(1deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.tool-card:hover {
-  transform: rotate(0deg) translateZ(20px);
-  box-shadow: 
-    0 10px 25px rgba(0, 243, 255, 0.2),
-    0 0 30px var(--hologram-blue);
-}
-
-.card-reflect {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, 
-    transparent 40%,
-    rgba(255,255,255,0.1) 50%,
-    transparent 60%);
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* Holographic Effects */
-.holographic-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.hologram-overlay {
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 243, 255, 0.1) 3px,
-    rgba(0, 243, 255, 0.1) 4px
-  );
-  animation: hologram 6s infinite linear;
-}
-
-@keyframes hologram {
-  from { background-position: 0 0; }
-  to { background-position: 100px 100px; }
-}
-
-/* Cyber Typography */
-.cyber-heading {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.2rem;
-  color: var(--cyber-blue);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+/* Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 2rem;
   position: relative;
 }
 
-.scanline {
+.section-title i {
+  color: var(--accent);
+  text-shadow: 0 0 15px var(--accent);
+}
+
+.title-accent {
   position: absolute;
   bottom: -10px;
   left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--matrix-green) 50%,
-    transparent 100%);
-  animation: scan 2s infinite linear;
+  width: 100px;
+  height: 3px;
+  background: var(--cyber-gradient);
+  border-radius: 2px;
 }
 
-@keyframes scan {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+/* Tech Stack Grid */
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.glow-text {
-  text-shadow: 0 0 10px var(--cyber-blue);
-}
-
-/* 3D Resume Card */
-.resume-card-3d {
-  background: linear-gradient(145deg, #0d1219 0%, #13182a 100%);
+.tech-item {
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  padding: 2rem;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.resume-card-3d:hover {
-  transform: translateZ(30px) rotateX(5deg) rotateY(-5deg);
-}
-
-.resume-hologram {
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
   position: relative;
-  padding: 2rem;
-  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tech-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px) scale(1.05);
+}
+
+.tech-item i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Holographic Effects */
+.hologram {
+  position: relative;
   overflow: hidden;
 }
 
-.hologram-pattern {
+.hologram::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  background: 
-    repeating-linear-gradient(45deg, 
-      transparent 0px,
-      transparent 2px,
-      var(--hologram-blue) 3px,
-      transparent 4px),
-    radial-gradient(circle at center, 
-      rgba(0,243,255,0.1) 0%,
-      transparent 70%);
-  animation: hologramFlow 20s infinite linear;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+    transparent 25%,
+    rgba(255,255,255,0.1) 50%,
+    transparent 75%
+  );
+  animation: hologram 3s infinite linear;
+  mix-blend-mode: overlay;
 }
 
-/* Add remaining styles for certifications, projects, and responsive design */
+@keyframes hologram {
+  0% { transform: translateX(0) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* 3D Button Effects */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: var(--cyber-gradient);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.download-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.1);
+  transform: rotate(45deg);
+  animation: btnGlow 2s infinite;
+}
+
+@keyframes btnGlow {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
