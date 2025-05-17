@@ -227,7 +227,7 @@ h2 i {
 }
 
 .sparkles::after {
-  content: "✨";
+  content: "\2728";
   position: absolute;
   animation: sparkle 1.5s infinite;
   opacity: 0;
