@@ -3,123 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ehsan Ullah - DevOps Portfolio</title>
-  
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-  <link rel="stylesheet" href="styles/main.css">
+  <title>Ehsan Ullah - Cloud DevOps Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
-  <div class="cyber-gradient"></div>
-  <div class="particle-network"></div>
+  <header>
+    <div class="container">
+      <h1>
+        <i class="fas fa-terminal"></i> Ehsan Ullah
+        <span class="subtitle">Cloud & DevOps Engineer</span>
+      </h1>
+    </div>
+  </header>
 
-  <div class="container">
-    <header class="hero">
-      <div class="hero-content">
-        <div class="avatar-container">
-          <div class="avatar-glow"></div>
-          <i class="fas fa-rocket avatar-icon"></i>
-        </div>
-        <h1 class="title">
-          <span class="gradient-text">Ehsan Ullah</span>
-          <span class="subtitle">Cloud DevOps Engineer</span>
-        </h1>
-        <p class="intro">Architecting cloud-native solutions with precision and scale</p>
-      </div>
-    </header>
-
-    <!-- About Section -->
-    <section class="card about">
-      <h2 class="section-title">
-        <i class="fas fa-terminal"></i>
-        About Me
-        <span class="title-accent"></span>
-      </h2>
-      <div class="neon-divider"></div>
-      <p class="about-text">
-        I specialize in building <span class="highlight">self-healing cloud architectures</span> and 
-        <span class="highlight">CI/CD pipelines</span> that ensure zero-downtime deployments. 
-        My solutions combine <span class="k8s-highlight">Kubernetes orchestration</span> with 
-        <span class="ai-highlight">ML-driven observability</span>.
+  <main class="container">
+    <section class="intro">
+      <p>
+        Welcome to my professional Cloud DevOps portfolio. Explore my Labs,
+        Certifications, Projects, Articles, Resume, and Social Media.
       </p>
-      <div class="tech-stack">
-        <div class="tech-item" data-tooltip="Kubernetes">
-          <i class="devicon-kubernetes-plain colored"></i>
+    </section>
+
+    <section>
+      <h2>
+        <i class="fas fa-graduation-cap section-icon"></i> Education
+      </h2>
+      <div class="cards">
+        <div class="card">
+          <h3>RQF Level 6 Diploma in Artificial Intelligence Operations (AIOps)</h3>
+          <p><strong>EduQual UK, 2025</strong></p>
+          <span class="percentage">86%</span>
         </div>
-        <div class="tech-item" data-tooltip="Terraform">
-          <i class="devicon-terraform-plain colored"></i>
-        </div>
-        <div class="tech-item" data-tooltip="GitLab CI">
-          <i class="devicon-gitlab-plain colored"></i>
-        </div>
-        <div class="tech-item" data-tooltip="Prometheus">
-          <i class="devicon-prometheus-original colored"></i>
+
+        <div class="card">
+          <h3>Intermediate Pre-Engineering</h3>
+          <p><strong>Tameer-i-Nau College, Quetta, 2020</strong></p>
+          <span class="percentage">85%</span>
         </div>
       </div>
     </section>
 
-    <!-- Education Section -->
-    <section class="card education">
-      <h2 class="section-title">
-        <i class="fas fa-graduation-cap"></i>
-        Education
-        <span class="title-accent"></span>
+    <section>
+      <h2>
+        <i class="fas fa-certificate section-icon"></i> Certifications
       </h2>
-      <div class="neon-divider"></div>
-      <div class="timeline">
-        <div class="timeline-item hologram">
-          <i class="fas fa-university timeline-icon"></i>
-          <h3>RQF Level 6 Diploma in AIOps</h3>
-          <p>EduQual UK, 2025 (86%)</p>
-        </div>
-        <div class="timeline-item hologram">
-          <i class="fas fa-flask timeline-icon"></i>
-          <h3>Pre-Engineering</h3>
-          <p>Tameer-i-Nau College, 2020 (85%)</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section class="card certifications">
-      <h2 class="section-title">
-        <i class="fas fa-certificate"></i>
-        Certifications
-        <span class="title-accent"></span>
-      </h2>
-      <div class="neon-divider"></div>
-      <div class="cert-grid">
-        <a href="#" class="cert-card hologram" target="_blank">
-          <i class="devicon-kubernetes-plain colored"></i>
-          <h3>Aspiring Kubestronaut</h3>
-          <p>Kubernetes Mastery Program</p>
+      <div class="cards">
+        <a href="Certifications/ehsan-ullah-CKA-certificate.pdf" target="_blank" class="card clickable">
+          <i class="fas fa-check-circle"></i>
+          Certified Kubernetes Administrator (CKA)
         </a>
-        <!-- Other cert cards same structure -->
-      </div>
-    </section>
-
-    <!-- Other sections follow similar structure -->
-
-    <section class="card resume">
-      <h2 class="section-title">
-        <i class="fas fa-id-card"></i>
-        Resume
-        <span class="title-accent"></span>
-      </h2>
-      <div class="neon-divider"></div>
-      <div class="resume-container hologram">
-        <div class="resume-glow"></div>
-        <i class="fas fa-file-pdf resume-icon"></i>
-        <h3>Interactive Resume</h3>
-        <a href="resume/Ehsan_DevOps_1YoE.pdf" class="download-btn" target="_blank">
-          <i class="fas fa-cloud-download-alt"></i>
-          Download PDF
+        <a href="Certifications/ehsan-ullah-CKAD-certificate.pdf" target="_blank" class="card clickable">
+          <i class="fas fa-check-circle"></i>
+          Certified Kubernetes Application Developer (CKAD)
+        </a>
+        <a href="Certifications/ehsan-ullah-KCNA-certificate.pdf" target="_blank" class="card clickable">
+          <i class="fas fa-check-circle"></i>
+          Kubernetes and Cloud Native Associate (KCNA)
         </a>
       </div>
     </section>
-  </div>
+
+    <section>
+      <h2>
+        <i class="fas fa-rocket section-icon"></i> Projects
+      </h2>
+      <div class="cards">
+        <a href="https://github.com/ahsankhan420/opentelemetry-app" target="_blank" class="card clickable">
+          <i class="fas fa-code"></i> OpenTelemetry Monitoring Project
+        </a>
+        <a href="Projects/" class="card clickable">
+          <i class="fas fa-folder-open"></i> View More Projects
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>
+        <i class="fas fa-pen-nib section-icon"></i> Articles
+      </h2>
+      <a href="Blogs/" class="card clickable">
+        <i class="fas fa-book"></i> Read My DevOps Articles
+      </a>
+    </section>
+
+    <section>
+      <h2>
+        <i class="fas fa-share-alt section-icon"></i> Social Media
+      </h2>
+      <a href="https://www.linkedin.com/in/ehsan-khan-devops" target="_blank" class="card clickable">
+        <i class="fab fa-linkedin"></i> LinkedIn Profile
+      </a>
+    </section>
+
+    <section>
+      <h2>
+        <i class="fas fa-file-alt section-icon"></i> Resume
+      </h2>
+      <a href="resume/Ehsan_DevOps_1YoE.pdf" target="_blank" class="card clickable">
+        <i class="fas fa-download"></i> Download My Resume (PDF)
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Ehsan Ullah. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
+
+
+
+
