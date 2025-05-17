@@ -3,124 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ehsan Ullah - Cloud DevOps Portfolio</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <title>Ehsan Ullah - DevOps Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet" />
+
+  <!-- Devicon for Kubernetes icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>
-        <i class="fas fa-terminal"></i> Ehsan Ullah
-        <span class="subtitle">Cloud & DevOps Engineer</span>
+  <!-- AI Themed Abstract Background -->
+  <div class="ai-background"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="title">
+        <i class="fas fa-cloud"></i> Ehsan Ullah <span class="subtitle">| Cloud DevOps Engineer</span>
       </h1>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="intro">
-      <p>
-        Welcome to my professional Cloud DevOps portfolio. Explore my Labs,
-        Certifications, Projects, Articles, Resume, and Social Media.
+      <p class="intro">
+        Architecting resilient cloud systems with intelligent automation and observability
       </p>
-    </section>
+    </header>
 
-    <section>
-      <h2>
-        <i class="fas fa-graduation-cap section-icon"></i> Education
-      </h2>
-      <div class="cards">
-        <div class="card">
-          <h3>RQF Level 6 Diploma in Artificial Intelligence Operations (AIOps)</h3>
-          <p><strong>EduQual UK, 2025</strong></p>
-          <span class="percentage">86%</span>
+    <!-- About Me Section -->
+    <section class="about">
+      <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
+      <p>
+        I'm a <span class="highlight">Cloud Infrastructure Specialist</span> focused on building 
+        <span class="highlight">self-healing systems</span> and <span class="highlight">CI/CD pipelines</span> that ensure 
+        zero-downtime deployments. My solutions combine <span class="highlight">Kubernetes orchestration</span> with 
+        <span class="highlight">ML-driven monitoring</span> to optimize resource utilization and prevent outages.
+      </p>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <i class="devicon-kubernetes-plain colored"></i>
+          <span>K8s Orchestration</span>
         </div>
-
-        <div class="card">
-          <h3>Intermediate Pre-Engineering</h3>
-          <p><strong>Tameer-i-Nau College, Quetta, 2020</strong></p>
-          <span class="percentage">85%</span>
+        <div class="tech-card">
+          <i class="devicon-terraform-plain colored"></i>
+          <span>IaC Management</span>
+        </div>
+        <div class="tech-card">
+          <i class="fas fa-brain"></i>
+          <span>MLOps Pipelines</span>
+        </div>
+        <div class="tech-card">
+          <i class="fas fa-shield-alt"></i>
+          <span>Cloud Security</span>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>
-        <i class="fas fa-certificate section-icon"></i> Certifications
-      </h2>
-      <div class="cards">
-        <a href="Certifications/ehsan-ullah-CKA-certificate.pdf" target="_blank" class="card clickable">
-          <i class="fas fa-check-circle"></i>
-          Certified Kubernetes Administrator (CKA)
+    <!-- Education Section -->
+    <section class="education">
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="certification-grid">
+        <div class="cert-card">
+          <div class="cert-content">
+            <i class="fas fa-university"></i>
+            <h3>RQF Level 6 Diploma in AIOps</h3>
+            <p>EduQual UK, 2025 (86%)</p>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-content">
+            <i class="fas fa-flask"></i>
+            <h3>Pre-Engineering</h3>
+            <p>Tameer-i-Nau College, 2020 (85%)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications">
+      <h2><i class="fas fa-award"></i> Certifications</h2>
+      <div class="certification-grid">
+        <a href="#" class="cert-card" target="_blank">
+          <div class="cert-content">
+            <i class="devicon-kubernetes-plain colored"></i>
+            <h3>Aspiring Kubestronaut</h3>
+            <p>Kubernetes Mastery Track</p>
+          </div>
         </a>
-        <a href="Certifications/ehsan-ullah-CKAD-certificate.pdf" target="_blank" class="card clickable">
-          <i class="fas fa-check-circle"></i>
-          Certified Kubernetes Application Developer (CKAD)
+        <a href="Certifications/ehsan-ullah-CKA-certificate.pdf" class="cert-card" target="_blank">
+          <div class="cert-content">
+            <i class="fas fa-shield-halved"></i>
+            <h3>Certified Kubernetes Administrator</h3>
+            <p>Cloud Native Security Expert</p>
+          </div>
         </a>
-        <a href="Certifications/ehsan-ullah-KCNA-certificate.pdf" target="_blank" class="card clickable">
-          <i class="fas fa-check-circle"></i>
-          Kubernetes and Cloud Native Associate (KCNA)
+        <a href="Certifications/ehsan-ullah-CKAD-certificate.pdf" class="cert-card" target="_blank">
+          <div class="cert-content">
+            <i class="fas fa-rocket"></i>
+            <h3>Certified Kubernetes App Developer</h3>
+            <p>Cloud Native Development</p>
+          </div>
+        </a>
+        <a href="Certifications/ehsan-ullah-KCNA-certificate.pdf" class="cert-card" target="_blank">
+          <div class="cert-content">
+            <i class="fas fa-cloud"></i>
+            <h3>Kubernetes Cloud Native Associate</h3>
+            <p>Multi-Cloud Deployment</p>
+          </div>
         </a>
       </div>
     </section>
 
-    <section>
-      <h2>
-        <i class="fas fa-rocket section-icon"></i> Projects
-      </h2>
-      <div class="cards">
-        <a href="https://github.com/ahsankhan420/opentelemetry-app" target="_blank" class="card clickable">
-          <i class="fas fa-code"></i> OpenTelemetry Monitoring Project
+    <!-- Projects Section -->
+    <section class="projects">
+      <h2><i class="fas fa-cubes"></i> Projects</h2>
+      <div class="project-grid">
+        <a href="https://github.com/ahsankhan420/opentelemetry-app" class="project-card" target="_blank">
+          <i class="fas fa-chart-network"></i>
+          <h3>OpenTelemetry Monitoring</h3>
+          <p>Distributed Tracing System</p>
         </a>
-        <a href="Projects/" class="card clickable">
-          <i class="fas fa-folder-open"></i> View More Projects
+        <a href="Projects/" class="project-card" target="_blank">
+          <i class="fas fa-server"></i>
+          <h3>Infrastructure Automation</h3>
+          <p>Terraform & Ansible Projects</p>
         </a>
       </div>
     </section>
 
-    <section>
-      <h2>
-        <i class="fas fa-pen-nib section-icon"></i> Articles
-      </h2>
-      <a href="Blogs/" class="card clickable">
-        <i class="fas fa-book"></i> Read My DevOps Articles
-      </a>
+    <!-- Labs Section -->
+    <section class="labs">
+      <h2><i class="fas fa-flask"></i> Labs</h2>
+      <div class="lab-grid">
+        <a href="Labs/" class="lab-card">
+          <i class="fas fa-microscope"></i>
+          <h3>DevOps Playground</h3>
+          <p>Experimental Environments</p>
+        </a>
+      </div>
     </section>
 
-    <section>
-      <h2>
-        <i class="fas fa-share-alt section-icon"></i> Social Media
-      </h2>
-      <a href="https://www.linkedin.com/in/ehsan-khan-devops" target="_blank" class="card clickable">
-        <i class="fab fa-linkedin"></i> LinkedIn Profile
-      </a>
+    <!-- Articles Section -->
+    <section class="articles">
+      <h2><i class="fas fa-blog"></i> Articles</h2>
+      <div class="article-grid">
+        <a href="Blogs/" class="article-card">
+          <i class="fas fa-newspaper"></i>
+          <h3>Technical Writings</h3>
+          <p>DevOps Best Practices</p>
+        </a>
+      </div>
     </section>
 
-    <section>
-      <h2>
-        <i class="fas fa-file-alt section-icon"></i> Resume
-      </h2>
-      <a href="resume/Ehsan_DevOps_1YoE.pdf" target="_blank" class="card clickable">
-        <i class="fas fa-download"></i> Download My Resume (PDF)
-      </a>
+    <!-- Resume Section -->
+    <section class="resume">
+      <h2><i class="fas fa-file-contract"></i> Resume</h2>
+      <div class="resume-card" onclick="window.open('resume/Ehsan_DevOps_1YoE.pdf', '_blank')">
+        <div class="holographic-effect"></div>
+        <div class="resume-content">
+          <i class="fas fa-id-card"></i>
+          <h3>Interactive Career Profile</h3>
+          <p>Tap to view full credentials</p>
+          <div class="sparkles"></div>
+        </div>
+      </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <p>© 2025 Ehsan Ullah. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- Social Media Section -->
+    <section class="social-media">
+      <h2><i class="fas fa-hashtag"></i> Social Media</h2>
+      <div class="social-grid">
+        <a href="https://www.linkedin.com/in/ehsan-khan-devops" class="social-card" target="_blank">
+          <i class="fab fa-linkedin"></i>
+          <span>Professional Network</span>
+        </a>
+        <a href="https://x.com/AhsanKh42364760" class="social-card" target="_blank">
+          <i class="fab fa-twitter"></i>
+          <span>Tech Insights</span>
+        </a>
+        <a href="https://certdirectory.io/profile/6d379415-5d78-4cea-a86a-fbdfe0e92921" class="social-card" target="_blank">
+          <i class="fas fa-certificate"></i>
+          <span>Cert Verification</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section class="hobbies">
+      <h2><i class="fas fa-heartbeat"></i> Hobbies</h2>
+      <div class="hobby-grid">
+        <div class="hobby-card">
+          <i class="fas fa-handshake"></i>
+          <h3>Community Building</h3>
+          <p>Tech Meetups & Networking</p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-dumbbell"></i>
+          <h3>Fitness Training</h3>
+          <p>Strength & Conditioning</p>
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
-
-
 
 
