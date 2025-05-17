@@ -1,240 +1,208 @@
-/* Reset & Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --cyber-blue: #00f3ff;
+  --neon-purple: #bc13fe;
+  --matrix-green: #0f0;
+  --hologram-blue: rgba(0, 143, 255, 0.4);
+  --cyber-bg: #0a0e17;
 }
 
+/* Cyber Background */
 body {
-  font-family: 'Inter', sans-serif;
-  background: #f8faff;
-  color: #2a2a2a;
-  line-height: 1.6;
+  background: var(--cyber-bg);
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
   min-height: 100vh;
-  padding: 2rem 1rem;
-  position: relative;
+  perspective: 1000px;
   overflow-x: hidden;
 }
 
-/* Background Effects */
-.ai-background {
+.cyber-grid {
   position: fixed;
-  top: -200px;
-  right: -150px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle at center, #a1cdf1 0%, #d1e6fb 70%, transparent 100%);
-  filter: blur(100px);
-  opacity: 0.3;
-  z-index: 0;
+  width: 200vw;
+  height: 200vh;
+  background: 
+    linear-gradient(to right, rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  transform: rotateX(60deg) rotateZ(45deg);
   pointer-events: none;
 }
 
-/* Main Container */
-.container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-/* Section Styling */
-section {
-  background: rgba(255, 255, 255, 0.95);
+/* 3D Sections */
+.section-3d {
+  background: linear-gradient(145deg, #0d1219 0%, #13182a 100%);
   border-radius: 15px;
   padding: 2rem;
-  margin: 1.5rem 0;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(161, 205, 241, 0.2);
+  margin: 3rem 0;
+  transform-style: preserve-3d;
+  box-shadow: 
+    0 0 30px rgba(0, 243, 255, 0.1),
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(0, 243, 255, 0.1);
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(161, 205, 241, 0.15);
+.section-3d:hover {
+  transform: translateZ(20px) rotateX(2deg) rotateY(2deg);
 }
 
-/* Grid Layouts */
-.tech-grid,
-.certification-grid,
-.project-grid,
-.social-grid,
-.hobby-grid {
+.neon-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  padding: 2px;
+  background: linear-gradient(45deg, 
+    var(--cyber-blue) 0%,
+    var(--neon-purple) 50%,
+    var(--cyber-blue) 100%);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Tool Grid */
+.tool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
-/* Cards */
-.tech-card,
-.cert-card,
-.project-card,
-.social-card,
-.hobby-card {
-  background: rgba(161, 205, 241, 0.08);
-  border-radius: 12px;
+.tool-card {
+  background: linear-gradient(145deg, #151c2b 0%, #1a233a 100%);
   padding: 1.5rem;
+  border-radius: 10px;
   text-align: center;
+  transform: rotate(var(--rotate));
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    0 0 10px var(--hologram-blue);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 1px solid rgba(161, 205, 241, 0.15);
-}
-
-.tech-card {
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Clickable Cards */
-a.cert-card,
-a.project-card,
-a.social-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-a.cert-card:hover,
-a.project-card:hover,
-a.social-card:hover {
-  background: rgba(161, 205, 241, 0.15);
-  transform: translateY(-3px);
-}
-
-/* Icons & Typography */
-h2 {
-  font-size: 2rem;
-  color: #2a3b6e;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-}
-
-h2 i {
-  margin-right: 15px;
-  font-size: 1.8rem;
-  color: #4a90e2;
-}
-
-.tech-card i,
-.cert-card i,
-.project-card i {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #4a90e2;
-}
-
-/* Resume Card */
-.resume-card {
   position: relative;
-  background: linear-gradient(135deg, #f8f9ff 0%, #e6f0ff 100%);
-  border-radius: 15px;
-  padding: 2rem;
-  cursor: pointer;
-  overflow: hidden;
-  margin-top: 1.5rem;
 }
 
-.holographic-effect {
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 300%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    rgba(161, 205, 241, 0.1) 25%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(161, 205, 241, 0.1) 75%
-  );
-  animation: holograph 3s infinite linear;
-}
-
-@keyframes holograph {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(150%); }
-}
-
-.resume-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.resume-content i {
+.tool-card i {
   font-size: 3rem;
-  color: #4a90e2;
   margin-bottom: 1rem;
-  transition: transform 0.3s ease;
+  text-shadow: 0 0 15px currentColor;
 }
 
-.resume-card:hover .resume-content i {
-  transform: rotate(15deg) scale(1.2);
+.tool-card:hover {
+  transform: rotate(0deg) translateZ(20px);
+  box-shadow: 
+    0 10px 25px rgba(0, 243, 255, 0.2),
+    0 0 30px var(--hologram-blue);
 }
 
-/* Mobile Optimization */
-@media (max-width: 768px) {
-  .container {
-    padding: 1rem;
-  }
-
-  section {
-    padding: 1.5rem;
-    margin: 1rem 0;
-  }
-
-  h2 {
-    font-size: 1.6rem;
-  }
-
-  .tech-grid,
-  .certification-grid,
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Hobby Section */
-.hobby-card {
-  background: rgba(161, 205, 241, 0.05);
-  padding: 1.5rem;
-  border-radius: 12px;
-}
-
-.hobby-card i {
-  color: #4a90e2;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-/* Certification Icons */
-.cert-card .devicon-kubernetes-plain {
-  font-size: 2.8rem;
-}
-
-/* Sparkle Animation */
-.sparkles {
+.card-reflect {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  inset: 0;
+  background: linear-gradient(45deg, 
+    transparent 40%,
+    rgba(255,255,255,0.1) 50%,
+    transparent 60%);
+  opacity: 0.3;
   pointer-events: none;
 }
 
-.sparkles::after {
-  content: "✨";
-  position: absolute;
-  animation: sparkle 1.5s infinite;
-  opacity: 0;
+/* Holographic Effects */
+.holographic-card {
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes sparkle {
-  0% { opacity: 0; transform: scale(0); }
-  50% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(2); }
+.hologram-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 243, 255, 0.1) 3px,
+    rgba(0, 243, 255, 0.1) 4px
+  );
+  animation: hologram 6s infinite linear;
 }
+
+@keyframes hologram {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+/* Cyber Typography */
+.cyber-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  color: var(--cyber-blue);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.scanline {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--matrix-green) 50%,
+    transparent 100%);
+  animation: scan 2s infinite linear;
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.glow-text {
+  text-shadow: 0 0 10px var(--cyber-blue);
+}
+
+/* 3D Resume Card */
+.resume-card-3d {
+  background: linear-gradient(145deg, #0d1219 0%, #13182a 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.resume-card-3d:hover {
+  transform: translateZ(30px) rotateX(5deg) rotateY(-5deg);
+}
+
+.resume-hologram {
+  position: relative;
+  padding: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hologram-pattern {
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(45deg, 
+      transparent 0px,
+      transparent 2px,
+      var(--hologram-blue) 3px,
+      transparent 4px),
+    radial-gradient(circle at center, 
+      rgba(0,243,255,0.1) 0%,
+      transparent 70%);
+  animation: hologramFlow 20s infinite linear;
+}
+
+/* Add remaining styles for certifications, projects, and responsive design */
