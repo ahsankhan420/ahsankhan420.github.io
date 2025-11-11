@@ -14,17 +14,19 @@ Visit my GitHub Pages portfolio site here:
 ## 📂 Repository Structure
 index.html – Main portfolio homepage for GitHub Pages
 
-- **/resume** – Contains my latest resume in PDF format
+- /**cv** – Contains my latest cv/resume in PDF format
 
-- /**Certifications** - Verified certification of different tools
+- /**Credentials** - Contains my Certifications (CKA, AWS, etc.), Academic Diploma, and Internship Letters.
 
-- /**Projects** – Real-world DevOps and cloud-native projects with full implementation
+- /**Portfolio-Projects** – Real-World Solutions. Dedicated folders for complex, end-to-end DevOps projects (e.g., Terraform/EKS IaC, CI/CD pipelines).
 
-- /**Labs** – Hands-on labs across DevOps, Cloud, ML and AI technologies
+- /**Code-Samples** – Automation Scripts. Hands-on labs, Bash/Python scripts, Ansible playbooks, and small, focused YAML/HCL samples.
 
-- /**Blogs** – Includes DevOps articles, blogs, and Medium posts authored by me
+- /**Articles** – Technical Writing. Blog posts, Medium articles, and technical explanations authored by me.
 
-- /**assets** – Supporting files such as images and stylesheets
+- /**Documentation** – Architectural Artifacts. System design documents, architecture diagrams, and runbooks for scalable solutions.
+
+- /**assets** –  Supporting media: images, logos, screenshots of dashboards, and custom fonts.
 
 ## 👨‍💻 About Me
 
