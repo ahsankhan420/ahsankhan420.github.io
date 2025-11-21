@@ -16,33 +16,45 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Adding a simple grid for skills and certs that matches the dark theme */
+    /* Grid Styles */
     .grid-section { padding: 50px 0; text-align: center; }
     .grid-container { 
         display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-        gap: 20px; 
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        gap: 25px; 
         margin-top: 30px; 
     }
     .card {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 20px;
+        padding: 30px;
         border-radius: 15px;
         transition: 0.3s;
         text-decoration: none;
         color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     .card:hover {
         transform: translateY(-5px);
         background: rgba(255, 255, 255, 0.1);
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-        border-color: #00f3ff; /* Neon Cyan */
+        box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+        border-color: #00f3ff;
+    }
+    /* Specific styles for badge images */
+    .badge-img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin-bottom: 15px;
+        filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
     }
     .card i { font-size: 3rem; margin-bottom: 15px; color: #00f3ff; }
-    .card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; margin-bottom: 10px; }
-    .section-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 10px; color: #fff; }
-    .subtitle { color: #aaa; margin-bottom: 30px; }
+    .card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; margin-bottom: 10px; }
+    .section-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 10px; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+    .subtitle { color: #aaa; margin-bottom: 40px; font-size: 1.1rem; }
   </style>
 </head>
 <body>
@@ -62,25 +74,25 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>ORCHESTRATING THE CLOUD</h1>
-                    <h2>Cloud DevOps Engineer & Architect</h2>
+                    <h2>Cloud DevOps Engineer</h2>
                     <p>
                         I build <strong>self-healing systems</strong> and <strong>AI-augmented CI/CD pipelines</strong> on Kubernetes. 
-                        Transforming infrastructure into business assets with serverless architectures and MLOps workflows to 
-                        <strong>slash costs</strong> and <strong>prevent outages</strong>.
+                        Transforming infrastructure into business assets to slash costs and prevent outages.
                     </p>
                     <div class="btn-group">
                         <a href="cv/DevOps_Engineer_Ehsan.pdf" target="_blank" class="btn btn-primary">
                           <i class="fas fa-file-download"></i> Download CV
                         </a>
-                        <a href="#certifications" class="btn">
-                            <i class="fas fa-certificate"></i> View Credentials
+                        
+                        <a href="mailto:ehsan.devops@gmail.com" class="btn">
+                            <i class="fas fa-envelope"></i> Email Me
                         </a>
                     </div>
                 </div>
 
                 <div class="profile-container">
                     <div class="profile-wrapper">
-                        <img src="Credentials/profile.png" alt="Ehsan Ullah" class="profile-img">
+                        <img src="profile.png" alt="Ehsan Ullah" class="profile-img">
                         <div class="glow-effect"></div>
                     </div>
                 </div>
@@ -90,7 +102,7 @@
 
     <section id="skills" class="grid-section">
         <div class="container">
-            <h2 class="section-title">TECH STACK</h2>
+            <h2 class="section-title">Tech Stack</h2>
             <p class="subtitle">Powered by Kubernetes & AI</p>
             <div class="grid-container">
                 <div class="card">
@@ -115,26 +127,28 @@
 
     <section id="certifications" class="grid-section">
         <div class="container">
-            <h2 class="section-title">CREDENTIALS</h2>
+            <h2 class="section-title">Credentials</h2>
             <p class="subtitle">Verified & Certified</p>
             <div class="grid-container">
-                <a href="Credentials/Ehsan-CKA-certificate.pdf" target="_blank" class="card">
-                    <i class="fas fa-shield-halved"></i>
-                    <h3>CKA</h3>
+                <a href="Credentials/ehsan-ullah-CKA-certificate.pdf" target="_blank" class="card">
+                    <img src="Credentials/cka.png" alt="CKA Badge" class="badge-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <i class="fas fa-shield-halved" style="display:none"></i> <h3>CKA</h3>
                     <p>Certified Kubernetes Administrator</p>
                 </a>
-                <a href="Credentials/Ehsan-CKAD-certificate.pdf" target="_blank" class="card">
-                    <i class="fas fa-rocket"></i>
+                <a href="Credentials/ehsan-ullah-CKAD-certificate.pdf" target="_blank" class="card">
+                    <img src="Credentials/ckad.png" alt="CKAD Badge" class="badge-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <i class="fas fa-rocket" style="display:none"></i>
                     <h3>CKAD</h3>
-                    <p>Certified Kubernetes Application Developer</p>
+                    <p>Certified Kubernetes App Developer</p>
                 </a>
-                <a href="Credentials/Ehsan-KCNA-certificate.pdf" target="_blank" class="card">
-                    <i class="fas fa-cloud"></i>
+                <a href="Credentials/ehsan-ullah-KCNA-certificate.pdf" target="_blank" class="card">
+                    <img src="Credentials/kcna.png" alt="KCNA Badge" class="badge-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <i class="fas fa-cloud" style="display:none"></i>
                     <h3>KCNA</h3>
                     <p>Kubernetes Cloud Native Associate</p>
                 </a>
                 <a href="Credentials/Ehsan-RQF level 6-EduQual-Diploma.pdf" target="_blank" class="card">
-                    <i class="fas fa-graduation-cap"></i>
+                    <i class="fas fa-graduation-cap" style="font-size: 4rem; color: #00f3ff;"></i>
                     <h3>AI Operations</h3>
                     <p>RQF Level 6 Diploma (Grade A)</p>
                 </a>
@@ -144,23 +158,50 @@
 
     <section id="projects" class="grid-section">
         <div class="container">
-            <h2 class="section-title">PROJECTS</h2>
-            <div class="grid-container">
+            <h2 class="section-title">Projects</h2>
+            <p class="subtitle">Hands-on Infrastructure Deployments</p>
+            <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+                
                 <a href="https://github.com/ahsankhan420/opentelemetry-app" target="_blank" class="card">
                     <i class="fas fa-chart-network"></i>
-                    <h3>OpenTelemetry</h3>
-                    <p>Distributed Tracing System</p>
+                    <h3>OpenTelemetry Implementation</h3>
+                    <p>A full-stack Distributed Tracing System to monitor microservices latency and bottlenecks.</p>
                 </a>
-                <a href="Code-Samples/" class="card">
-                    <i class="fas fa-code"></i>
-                    <h3>Automation Lab</h3>
-                    <p>Terraform & Bash Scripts</p>
+
+                <a href="#" class="card" style="opacity: 0.7;">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>More Coming Soon</h3>
+                    <p>Currently building advanced K8s Operators.</p>
                 </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="runbooks" class="grid-section" style="background: rgba(0,0,0,0.3);">
+        <div class="container">
+            <h2 class="section-title">Runbooks & Writing</h2>
+            <p class="subtitle">Architecture Diagrams & Technical Articles</p>
+            <div class="grid-container">
+                
                 <a href="documentation/" class="card">
-                    <i class="fas fa-book"></i>
-                    <h3>Runbooks</h3>
-                    <p>Architecture Documentation</p>
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Architecture Diagrams</h3>
+                    <p>High-level system designs and cloud flowcharts.</p>
                 </a>
+
+                <a href="Articles/" class="card">
+                    <i class="fas fa-newspaper"></i>
+                    <h3>Technical Articles</h3>
+                    <p>Deep dives into DevOps best practices and guides.</p>
+                </a>
+
+                 <a href="documentation/" class="card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>System Runbooks</h3>
+                    <p>Operational guides for maintaining uptime.</p>
+                </a>
+
             </div>
         </div>
     </section>
@@ -183,3 +224,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+```
