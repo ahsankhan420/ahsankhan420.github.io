@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHead from '../components/SectionHead.astro';
+import { SITE } from '../consts';
+
+// To enable real form submissions: create a free form at https://formspree.io
+// and paste its ID here (e.g. "xyzabcd"). Until then the form gracefully falls
+// back to opening the visitor's email client pre-filled.
+const FORMSPREE_ID = '';
+
+const channels = [
+  { icon: '✉️', label: 'Email', value: SITE.email, href: `mailto:${SITE.email}` },
+  { icon: '💼', label: 'LinkedIn', value: 'ehsan-khan-devops', href: SITE.socials.linkedin },
+  { icon: '🐙', label: 'GitHub', value: `@${SITE.githubUser}`, href: SITE.socials.github },
+  { icon: '𝕏', label: 'X / Twitter', value: SITE.twitterHandle, href: SITE.socials.twitter },
+];
+---
+<BaseLayout title="Contact" description="Get in touch with Ehsan Ullah (Ahsan Khan) for platform, DevOps, cloud and SRE roles, or freelance infrastructure engineering.">
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="Contact" title="Let's work together" sub="Available worldwide for freelance, full-time remote, or project-based work — apps, websites, agentic AI, DevOps or MLOps. The fastest way to reach me is below." align="center" />
+
+      <div class="contact-grid">
+        <form id="contactForm" class="card form" data-formspree={FORMSPREE_ID} novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="channels">
+          <h3>Direct channels</h3>
+          {channels.map((c) => (
+            <a href={c.href} class="channel card" {...(c.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>
+              <span class="ch-icon" aria-hidden="true">{c.icon}</span>
+              <span class="ch-text"><strong>{c.label}</strong><span>{c.value}</span></span>
+              <span class="ch-arrow" aria-hidden="true">→</span>
+            </a>
+          ))}
+          <div class="avail card">
+            <span class="dot" aria-hidden="true"></span>
+            <p><strong>Available for work</strong><br />Based {SITE.location}. Comfortable with remote &amp; async teams.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 28px; max-width: 1000px; margin-inline: auto; }
+  .form { display: grid; gap: 16px; }
+  .field { display: grid; gap: 6px; }
+  .field label { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); }
+  .field input, .field textarea {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 12px 14px; color: var(--text); font-family: var(--font-body); font-size: 0.95rem; width: 100%;
+    transition: border-color 0.25s, box-shadow 0.25s; resize: vertical;
+  }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(45,212,191,0.18); }
+  .form-note { font-size: 0.88rem; min-height: 1.2em; color: var(--text-dim); }
+  .form-note.ok { color: #34d399; } .form-note.err { color: var(--coral); }
+
+  .channels { display: grid; gap: 12px; align-content: start; }
+  .channels h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-faint); font-family: var(--font-mono); }
+  .channel { display: flex; align-items: center; gap: 14px; padding: 16px 18px; }
+  .ch-icon { font-size: 1.3rem; }
+  .ch-text { display: flex; flex-direction: column; }
+  .ch-text strong { font-family: var(--font-display); }
+  .ch-text span { font-size: 0.84rem; color: var(--text-faint); }
+  .ch-arrow { margin-left: auto; color: var(--text-faint); transition: transform 0.3s, color 0.3s; }
+  .channel:hover .ch-arrow { transform: translateX(4px); color: var(--cyan); }
+  .avail { display: flex; gap: 12px; align-items: flex-start; }
+  .avail .dot { width: 9px; height: 9px; border-radius: 50%; background: #34d399; box-shadow: 0 0 10px #34d399; margin-top: 6px; flex-shrink: 0; }
+  .avail p { font-size: 0.9rem; } .avail strong { color: var(--text); }
+  @media (max-width: 780px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>
+
+<script is:inline define:vars={{ EMAIL: SITE.email }}>
+  const form = document.getElementById('contactForm');
+  const note = document.getElementById('formNote');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const id = form.dataset.formspree;
+    note.className = 'form-note';
+    if (!form.checkValidity()) { note.textContent = 'Please fill in all fields with a valid email.'; note.classList.add('err'); return; }
+
+    if (id) {
+      try {
+        note.textContent = 'Sending…';
+        const res = await fetch(`https://formspree.io/f/${id}`, {
+          method: 'POST', body: data, headers: { Accept: 'application/json' },
+        });
+        if (res.ok) { form.reset(); note.textContent = 'Thanks — your message is on its way!'; note.classList.add('ok'); }
+        else throw new Error('failed');
+      } catch { note.textContent = 'Something went wrong. Please email me directly.'; note.classList.add('err'); }
+    } else {
+      // Zero-config fallback: open the visitor's mail client pre-filled.
+      const subject = encodeURIComponent(data.get('subject') || 'Hello from your website');
+      const body = encodeURIComponent(`${data.get('message')}\n\n— ${data.get('name')} (${data.get('email')})`);
+      window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+      note.textContent = 'Opening your email app… if nothing happens, email me directly at ' + EMAIL;
+      note.classList.add('ok');
+    }
+  });
+</script>

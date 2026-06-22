@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="404 — Not Found" description="Page not found." noindex>
+  <section class="section nf">
+    <div class="container">
+      <span class="eyebrow">Error 404</span>
+      <h1><span class="gradient-text">CrashLoopBackOff</span></h1>
+      <p class="lede">This resource couldn't be scheduled — the page you're looking for doesn't exist or has been moved.</p>
+      <pre class="nf-term">$ kubectl get page --this-url
+Error from server (NotFound): page "{Astro.url.pathname}" not found</pre>
+      <div class="nf-actions">
+        <a href="/" class="btn btn-primary">Back to home</a>
+        <a href="/projects" class="btn">View case studies</a>
+        <a href="/blog" class="btn">Read the blog</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf { min-height: 70vh; display: grid; align-items: center; text-align: center; }
+  .nf .eyebrow { margin-inline: auto; }
+  .nf h1 { margin: 18px 0; font-size: clamp(2.6rem, 1.6rem + 5vw, 5rem); }
+  .nf .lede { max-width: 50ch; margin: 0 auto 22px; color: var(--text-dim); }
+  .nf-term { display: inline-block; text-align: left; background: #060a14; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; font-size: 0.85rem; color: var(--coral); margin-bottom: 26px; }
+  .nf-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+</style>

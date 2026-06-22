@@ -1,0 +1,44 @@
+# Jekyll configuration for GitHub Pages
+title: Ehsan Ullah | Cloud DevOps Engineer
+description: >-
+  Cloud DevOps Engineer (CKA, CKAD, KCNA) building self-healing systems and
+  AI-augmented CI/CD pipelines on Kubernetes, Terraform and multi-cloud.
+author: Ehsan Ullah
+email: ahsanullahkhan881@gmail.com
+url: "https://ahsankhan420.github.io"
+baseurl: ""
+lang: en
+
+# Social
+twitter:
+  username: AhsanKh42364760
+  card: summary_large_image
+github_username: ahsankhan420
+
+# Build settings
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+
+# Performance / SEO plugins (supported on GitHub Pages)
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Compress generated HTML output
+sass:
+  style: compressed
+
+# Exclude dev / backup files from the build
+exclude:
+  - old_index.html
+  - styles/old_main.css
+  - README.md
+  - .github/
+  - Gemfile
+  - Gemfile.lock
+
+# Keep these files/folders in the published site
+include:
+  - robots.txt
+  - sitemap.xml

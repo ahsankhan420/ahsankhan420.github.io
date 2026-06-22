@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects', (p) => !p.data.draft))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Case Studies" description="Engineering case studies — Kubernetes platforms, GitOps, observability and AI-augmented automation, with architecture decisions and measurable outcomes.">
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="Portfolio" title="Engineering case studies" sub="Each project is a full story: the problem, the architecture decisions, the challenges, and the results — written the way I'd explain them to an engineering team." align="center" />
+      <div class="grid cols-3">
+        {projects.map((p, i) => (
+          <ProjectCard
+            href={`/projects/${p.id}`}
+            title={p.data.title}
+            summary={p.data.summary}
+            stack={p.data.stack}
+            domains={p.data.domains}
+            impact={p.data.impact}
+            delay={(i % 3) + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

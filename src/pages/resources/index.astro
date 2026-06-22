@@ -1,0 +1,87 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHead from '../../components/SectionHead.astro';
+
+const resources = (await getCollection('resources', (r) => !r.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categories = ['All', ...Array.from(new Set(resources.map((r) => r.data.category)))];
+const typeIcon: Record<string, string> = {
+  Roadmap: '🗺️', Cheatsheet: '📋', Guide: '📘', Template: '🧩', Tool: '🛠️', Download: '⬇️', Link: '🔗',
+};
+---
+<BaseLayout title="Resource Library & Learning Hub" description="Roadmaps, cheatsheets, templates and guides for Kubernetes, cloud, DevOps, MLOps and AI infrastructure — a growing free learning hub.">
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="Learning hub" title="Resource library" sub="Curated roadmaps, cheatsheets, templates and guides for cloud-native engineering. Growing over time — bookmark it." align="center" />
+
+      <div class="filters" role="tablist" aria-label="Filter resources by category">
+        {categories.map((c, i) => (
+          <button class={`chip ${i === 0 ? 'active' : ''}`} data-filter={c} role="tab" aria-selected={i === 0 ? 'true' : 'false'}>{c}</button>
+        ))}
+      </div>
+
+      <div class="grid cols-3" id="resGrid">
+        {resources.map((r, i) => {
+          const external = r.data.url?.startsWith('http');
+          return (
+            <a
+              href={r.data.url ?? '#'}
+              class="card res"
+              data-cat={r.data.category}
+              data-reveal data-delay={(i % 3) + 1}
+              {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+            >
+              <div class="res-top">
+                <span class="res-icon" aria-hidden="true">{typeIcon[r.data.type] ?? '📄'}</span>
+                <span class="tag">{r.data.type}</span>
+              </div>
+              <h3>{r.data.title}</h3>
+              <p>{r.data.description}</p>
+              <div class="res-foot">
+                <span class="tag">{r.data.category}</span>
+                <span class="level">{r.data.level}</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+      <p class="empty" id="emptyMsg" hidden>No resources in this category yet — check back soon.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 36px; }
+  .chip { font-family: var(--font-mono); font-size: 0.82rem; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.02); color: var(--text-dim); cursor: pointer; transition: all 0.25s; }
+  .chip:hover { color: var(--text); border-color: var(--border-strong); }
+  .chip.active { color: #04121a; background: var(--cyan); border-color: var(--cyan); font-weight: 600; }
+  .res { display: flex; flex-direction: column; gap: 12px; height: 100%; }
+  .res-top { display: flex; align-items: center; justify-content: space-between; }
+  .res-icon { font-size: 1.6rem; }
+  .res p { font-size: 0.95rem; }
+  .res-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 8px; }
+  .level { font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-faint); }
+  .empty { text-align: center; color: var(--text-faint); margin-top: 30px; }
+</style>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.chip');
+  const cards = document.querySelectorAll<HTMLElement>('#resGrid .res');
+  const empty = document.getElementById('emptyMsg');
+  chips.forEach((chip) =>
+    chip.addEventListener('click', () => {
+      const f = chip.dataset.filter;
+      chips.forEach((c) => { c.classList.remove('active'); c.setAttribute('aria-selected', 'false'); });
+      chip.classList.add('active'); chip.setAttribute('aria-selected', 'true');
+      let shown = 0;
+      cards.forEach((card) => {
+        const show = f === 'All' || card.dataset.cat === f;
+        card.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+    })
+  );
+</script>

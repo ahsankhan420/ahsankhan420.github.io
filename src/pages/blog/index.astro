@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const posts = (await getCollection('blog', (p) => !p.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const [lead, ...rest] = posts;
+---
+<BaseLayout title="Technical Writing" description="Articles, tutorials and deep dives on Kubernetes, GitOps, observability, cloud cost optimisation and AI infrastructure by Ehsan Ullah (Ahsan Khan).">
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="Knowledge base" title="Technical writing" sub="Deep dives, tutorials and field notes from building and operating cloud-native platforms." align="center" />
+
+      {lead && (
+        <a href={`/blog/${lead.id}`} class="card lead" data-reveal>
+          <div class="lead-body">
+            <span class="eyebrow">Latest · {lead.data.category}</span>
+            <h2>{lead.data.title}</h2>
+            <p>{lead.data.description}</p>
+            <div class="lead-meta">
+              <time datetime={lead.data.date.toISOString()}>{lead.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+              {lead.data.readingTime && <span>· {lead.data.readingTime}</span>}
+              <span class="read">Read →</span>
+            </div>
+          </div>
+        </a>
+      )}
+
+      <div class="grid cols-3 rest">
+        {rest.map((p, i) => (
+          <ArticleCard
+            href={`/blog/${p.id}`}
+            title={p.data.title}
+            description={p.data.description}
+            date={p.data.date}
+            category={p.data.category}
+            readingTime={p.data.readingTime}
+            tags={p.data.tags}
+            delay={(i % 3) + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lead { display: block; margin-bottom: 28px; padding: clamp(28px, 4vw, 48px); }
+  .lead h2 { margin: 14px 0; }
+  .lead p { font-size: 1.1rem; max-width: 70ch; }
+  .lead-meta { display: flex; align-items: center; gap: 10px; margin-top: 18px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-faint); }
+  .lead-meta .read { color: var(--cyan); margin-left: auto; font-family: var(--font-display); }
+  .rest { margin-top: 4px; }
+</style>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHead from '../components/SectionHead.astro';
+
+const services = [
+  { icon: '📱', title: 'App development', body: 'Cross-platform mobile and web apps — clean UX, solid APIs, and a CI/CD pipeline to ship them.' },
+  { icon: '🌐', title: 'Website development', body: 'Fast, SEO-friendly, accessible websites (like this one) built on modern frameworks and deployed to the edge.' },
+  { icon: '🤖', title: 'Agentic AI workflows', body: 'LLM agents, RAG systems and automation that connect tools and data to do real work — built to run reliably.' },
+  { icon: '☸️', title: 'Kubernetes & DevOps', body: 'Design, harden and operate production clusters with GitOps delivery, progressive rollouts and self-healing.' },
+  { icon: '🧠', title: 'AI Infrastructure & MLOps', body: 'Model serving, GPU scheduling, drift detection and reproducible pipelines on Kubernetes.' },
+  { icon: '☁️', title: 'Cloud & cost optimisation', body: 'Terraform-driven multi-cloud infrastructure, observability, and FinOps that cuts spend without risking uptime.' },
+];
+
+const toolkit = [
+  { group: 'Editor & shell', items: ['VS Code', 'Neovim', 'Zsh + Starship', 'tmux'] },
+  { group: 'Kubernetes', items: ['k9s', 'kubectx/kubens', 'Helm', 'Lens', 'kind'] },
+  { group: 'Cloud & IaC', items: ['Terraform', 'AWS CLI', 'OpenTofu', 'Terragrunt'] },
+  { group: 'CI/CD', items: ['GitHub Actions', 'Argo CD', 'Argo Rollouts'] },
+  { group: 'Observability', items: ['Prometheus', 'Grafana', 'OpenTelemetry', 'k6'] },
+  { group: 'Productivity', items: ['Obsidian', 'Excalidraw', 'Raycast', 'Docker Desktop'] },
+];
+---
+<BaseLayout title="Services & Toolkit" description="Professional services offered by Ehsan Ullah (Ahsan Khan) and the day-to-day toolkit used to build and operate cloud-native platforms.">
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="Professional services" title="How I can help" sub="Engagements I take on — full-time or freelance — to make cloud infrastructure reliable, automated and cost-aware." align="center" />
+      <div class="grid cols-3">
+        {services.map((s, i) => (
+          <div class="card svc" data-reveal data-delay={(i % 3) + 1}>
+            <span class="svc-icon" aria-hidden="true">{s.icon}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="/uses" title="My daily toolkit" sub="The tools I reach for to design, ship and operate systems." />
+      <div class="grid cols-3">
+        {toolkit.map((t, i) => (
+          <div class="card" data-reveal data-delay={(i % 3) + 1}>
+            <h3 class="tk-group">{t.group}</h3>
+            <div class="tag-list">{t.items.map((it) => <span class="tag">{it}</span>)}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .svc-icon { font-size: 1.9rem; }
+  .svc h3 { margin: 12px 0 8px; font-size: 1.15rem; }
+  .svc p { font-size: 0.94rem; }
+  .tk-group { font-size: 1.05rem; color: var(--text); margin-bottom: 14px; }
+</style>

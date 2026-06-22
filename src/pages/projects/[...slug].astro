@@ -1,0 +1,92 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', (p) => !p.data.draft);
+  return projects.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: d.title,
+  abstract: d.summary,
+  author: { '@type': 'Person', name: SITE.name },
+  dateCreated: d.date.toISOString(),
+  keywords: [...d.stack, ...d.domains].join(', '),
+};
+---
+<BaseLayout title={d.title} description={d.summary} type="article" publishedTime={d.date} tags={d.stack} jsonLd={jsonLd}>
+  <article class="section">
+    <div class="container">
+      <a href="/projects" class="back">← All case studies</a>
+
+      <header class="case-head" data-reveal>
+        <div class="tag-list">{d.domains.map((x) => <span class="tag">{x}</span>)}</div>
+        <h1>{d.title}</h1>
+        <p class="lede">{d.summary}</p>
+
+        <dl class="case-meta">
+          <div><dt>Role</dt><dd>{d.role}</dd></div>
+          {d.timeline && <div><dt>Timeline</dt><dd>{d.timeline}</dd></div>}
+          <div><dt>Date</dt><dd>{d.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</dd></div>
+        </dl>
+
+        {(d.links.repo || d.links.live || d.links.writeup) && (
+          <div class="case-links">
+            {d.links.repo && <a href={d.links.repo} target="_blank" rel="noopener" class="btn">View code</a>}
+            {d.links.live && <a href={d.links.live} target="_blank" rel="noopener" class="btn btn-primary">Live demo</a>}
+            {d.links.writeup && <a href={d.links.writeup} target="_blank" rel="noopener" class="btn">External write-up</a>}
+          </div>
+        )}
+      </header>
+
+      {d.impact.length > 0 && (
+        <div class="impact-row" data-reveal>
+          {d.impact.map((m) => <div class="impact-tile"><strong>{m.value}</strong><span>{m.label}</span></div>)}
+        </div>
+      )}
+
+      <div class="prose case-body" data-reveal>
+        <Content />
+      </div>
+
+      {d.stack.length > 0 && (
+        <div class="stack-foot">
+          <h3>Tech stack</h3>
+          <div class="tag-list">{d.stack.map((s) => <span class="tag">{s}</span>)}</div>
+        </div>
+      )}
+
+      <div class="next-cta">
+        <a href="/contact" class="btn btn-primary">Discuss a similar project</a>
+        <a href="/projects" class="btn">More case studies</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .back { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-dim); }
+  .back:hover { color: var(--cyan); }
+  .case-head { max-width: 820px; margin: 22px 0 40px; }
+  .case-head h1 { font-size: clamp(2rem, 1.4rem + 2.6vw, 3.2rem); margin: 16px 0; }
+  .case-head .lede { font-size: 1.18rem; color: var(--text-dim); }
+  .case-meta { display: flex; gap: 36px; flex-wrap: wrap; margin: 26px 0; padding: 20px 0; border-block: 1px solid var(--border); }
+  .case-meta dt { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); font-family: var(--font-mono); }
+  .case-meta dd { color: var(--text); font-family: var(--font-display); margin-top: 4px; }
+  .case-links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .impact-row { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 44px; }
+  .impact-tile { flex: 1; min-width: 130px; padding: 22px; border: 1px solid var(--border); border-radius: var(--radius); background: rgba(255,255,255,0.02); }
+  .impact-tile strong { display: block; font-family: var(--font-display); font-size: 2rem; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .impact-tile span { font-size: 0.82rem; color: var(--text-faint); }
+  .stack-foot { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border); }
+  .stack-foot h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-faint); font-family: var(--font-mono); margin-bottom: 14px; }
+  .next-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 48px; }
+</style>

@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHead from '../components/SectionHead.astro';
+import { SITE } from '../consts';
+
+const timeline = [
+  { year: '2026', title: 'CNCF Kubestronaut + Building Apps, Web & Agentic AI', body: 'Earned Kubestronaut status (all five Kubernetes certs) and now ship full products — apps, websites and agentic AI workflows — on top of self-healing cloud platforms.', tag: 'Now' },
+  { year: '2026', title: 'Certified Kubernetes Security Specialist (CKS)', body: 'Added the advanced hands-on security certification, completing the core Kubernetes suite and earning the Kubestronaut title.', tag: 'Certification' },
+  { year: '2025', title: 'CKA, CKAD & KCSA', body: 'Earned the flagship hands-on Kubernetes certifications plus the Cloud Native Security Associate — validating production cluster administration, app delivery and security.', tag: 'Certification' },
+  { year: '2024', title: 'Kubernetes & Cloud Native Associate (KCNA)', body: 'Established cloud-native foundations across containers, orchestration, observability and GitOps.', tag: 'Certification' },
+  { year: '2024', title: 'DevOps, Cloud & Software Engineering', body: 'Built applications and websites, plus Terraform-driven infrastructure, GitOps delivery with Argo CD, and observability with Prometheus, Grafana and OpenTelemetry.', tag: 'Experience' },
+];
+
+const achievements = [
+  { value: 'Kubestronaut', label: 'CNCF title — all 5 core Kubernetes certs' },
+  { value: '5+', label: 'Kubernetes certifications (CKS · CKA · CKAD · KCNA · KCSA)' },
+  { value: 'Global', label: 'Freelance · full-time remote · project-based' },
+  { value: 'Full-stack', label: 'Apps · websites · agentic AI · DevOps · MLOps' },
+];
+
+const roadmap = [
+  { title: 'Ship more agentic AI products', body: 'Build and launch production agentic AI workflows and apps that pair LLM reasoning with reliable infrastructure.' },
+  { title: 'Deepen AI Infrastructure & MLOps', body: 'Production-grade model serving, drift detection and GPU scheduling on Kubernetes.' },
+  { title: 'Open-source contribution', body: 'Contribute to CNCF-landscape projects and publish reusable platform and AI tooling.' },
+  { title: 'Technical writing at scale', body: 'Grow this knowledge hub into a go-to resource for cloud, Kubernetes and AI-infrastructure engineers.' },
+];
+
+const values = [
+  { icon: '🚀', title: 'Ship end to end', body: 'From the app or website down to the platform it runs on — one accountable engineer across the whole stack.' },
+  { icon: '⚙️', title: 'Automate the toil', body: 'If it is done twice by hand, it becomes a pipeline. Humans for judgement, machines for repetition.' },
+  { icon: '🛡️', title: 'Reliable & secure', body: 'Self-healing systems, sane SLOs and security baked in — Kubestronaut-grade rigour by default.' },
+  { icon: '🌍', title: 'Work anywhere', body: 'Async-friendly and globally available — freelance, full-time remote, or project-based.' },
+];
+---
+<BaseLayout title="About" description="About Ehsan Ullah (Ahsan Khan) — CNCF Kubestronaut and Cloud, DevOps & AI Engineer building apps, websites and agentic AI on self-healing platforms. Available globally." showPersonSchema>
+  <section class="section">
+    <div class="container">
+      <div class="about-hero">
+        <div data-reveal>
+          <span class="eyebrow">About</span>
+          <h1>Engineer behind <span class="gradient-text">the platform</span></h1>
+          <p class="lede">
+            I'm {SITE.name} — also known as {SITE.altName} — a CNCF Kubestronaut
+            and a Cloud, DevOps &amp; AI Engineer who builds complete products:
+            mobile apps, websites, and agentic AI workflows, plus the
+            infrastructure they run on.
+          </p>
+          <p>
+            I work across the whole stack — from the application and UI down to
+            Kubernetes, CI/CD and Infrastructure as Code — fusing software
+            development with DevOps, MLOps and AI-driven operations to ship fast
+            and run reliably. I'm available <strong>anywhere in the world</strong>
+            for freelance, full-time remote, or project-based work.
+          </p>
+          <div class="about-actions">
+            <a href={SITE.cv} target="_blank" rel="noopener" class="btn btn-primary">Download resume</a>
+            <a href="/contact" class="btn">Get in touch</a>
+          </div>
+        </div>
+        <div class="about-portrait" data-reveal data-delay="2">
+          <div class="tilt" id="aboutTilt">
+            <div class="tilt-shine" aria-hidden="true"></div>
+            <picture>
+              <source srcset={SITE.photo.webp} type="image/webp" />
+              <img src={SITE.photo.fallback} alt={SITE.photo.alt} width="420" height="372" loading="eager" />
+            </picture>
+            <div class="tilt-badge" aria-hidden="true"><span>☸</span> Kubestronaut</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="grid cols-4">
+        {achievements.map((a, i) => (
+          <div class="card achievement" data-reveal data-delay={(i % 4) + 1}>
+            <strong>{a.value}</strong><span>{a.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="Principles" title="How I engineer" />
+      <div class="grid cols-4">
+        {values.map((v, i) => (
+          <div class="card value" data-reveal data-delay={(i % 4) + 1}>
+            <span class="v-icon" aria-hidden="true">{v.icon}</span>
+            <h3>{v.title}</h3>
+            <p>{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="Career journey" title="Milestones &amp; timeline" sub="The path from cloud-native foundations to AI-augmented platform engineering." />
+      <ol class="timeline">
+        {timeline.map((t, i) => (
+          <li class="t-item" data-reveal data-delay={(i % 3) + 1}>
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card card">
+              <div class="t-head"><span class="t-year">{t.year}</span><span class="tag">{t.tag}</span></div>
+              <h3>{t.title}</h3>
+              <p>{t.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="What's next" title="Roadmap &amp; future goals" sub="Where I'm taking my craft over the next chapter." />
+      <div class="grid cols-2">
+        {roadmap.map((r, i) => (
+          <div class="card road" data-reveal data-delay={(i % 2) + 1}>
+            <span class="road-num" aria-hidden="true">0{i + 1}</span>
+            <div><h3>{r.title}</h3><p>{r.body}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 48px; align-items: center; }
+  .about-hero h1 { margin: 16px 0; }
+  .about-hero .lede { font-size: 1.15rem; color: var(--text); margin-bottom: 14px; }
+  .about-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  .about-portrait { perspective: 1100px; }
+  .tilt { position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-strong); box-shadow: 0 30px 80px -30px rgba(0,0,0,0.8), var(--glow-cyan); transform-style: preserve-3d; transition: transform 0.25s var(--ease); will-change: transform; }
+  .tilt img { width: 100%; display: block; aspect-ratio: 420 / 372; object-fit: cover; }
+  .tilt-shine { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(circle at var(--mx,50%) var(--my,0%), rgba(255,255,255,0.18), transparent 45%); opacity: 0; transition: opacity 0.3s; }
+  .tilt:hover .tilt-shine { opacity: 1; }
+  .tilt-badge { position: absolute; left: 14px; bottom: 14px; z-index: 3; transform: translateZ(40px); display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-display); font-size: 0.82rem; padding: 8px 14px; border-radius: 999px; color: #04121a; background: var(--grad-brand); box-shadow: 0 8px 24px -8px rgba(45,212,191,0.7); }
+  .tilt-badge span { font-size: 1rem; }
+  @media (max-width: 820px) { .about-hero { grid-template-columns: 1fr; } .about-portrait { order: -1; max-width: 320px; } }
+
+  .achievement { text-align: center; }
+  .achievement strong { display: block; font-family: var(--font-display); font-size: 1.9rem; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .achievement span { font-size: 0.82rem; color: var(--text-faint); }
+  .value .v-icon { font-size: 1.8rem; }
+  .value h3 { margin: 12px 0 8px; font-size: 1.1rem; }
+  .value p { font-size: 0.92rem; }
+
+  .timeline { list-style: none; position: relative; padding-left: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--cyan), var(--indigo), transparent); }
+  .t-item { position: relative; padding-bottom: 22px; }
+  .t-dot { position: absolute; left: -27px; top: 24px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 4px rgba(45,212,191,0.15); }
+  .t-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .t-year { font-family: var(--font-mono); color: var(--cyan); font-size: 0.9rem; }
+  .t-card h3 { font-size: 1.15rem; }
+  .t-card p { margin-top: 6px; }
+
+  .road { display: flex; gap: 18px; align-items: flex-start; }
+  .road-num { font-family: var(--font-display); font-size: 1.6rem; color: var(--indigo); opacity: 0.7; }
+</style>
+
+<script>
+  const card = document.getElementById('aboutTilt');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (card && !reduce && fine) {
+    const MAX = 8;
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      card.style.transform = `rotateY(${(px - 0.5) * MAX * 2}deg) rotateX(${(0.5 - py) * MAX * 2}deg)`;
+      card.style.setProperty('--mx', `${px * 100}%`);
+      card.style.setProperty('--my', `${py * 100}%`);
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  }
+</script>

@@ -1,0 +1,12 @@
+{
+  "name": "Ehsan Ullah — Cloud & Platform Engineer",
+  "short_name": "EHSAN.CLOUD",
+  "description": "Cloud, DevOps & Platform Engineering portfolio and knowledge hub.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06080f",
+  "theme_color": "#06080f",
+  "icons": [
+    { "src": "/profile.webp", "sizes": "450x450", "type": "image/webp", "purpose": "any" }
+  ]
+}

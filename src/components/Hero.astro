@@ -1,0 +1,246 @@
+---
+import { SITE } from '../consts';
+const stats = [
+  { value: '5+', label: 'Kubernetes certs' },
+  { value: '15+', label: 'Cloud-native tools' },
+  { value: 'Global', label: 'Freelance · remote · project' },
+];
+---
+<section class="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="container hero-inner">
+    <div class="hero-copy" data-reveal>
+      <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> Available worldwide · freelance · full-time remote · project-based</span>
+
+      <h1>
+        I build <span class="gradient-text">products</span><br />
+        and the <span class="gradient-text">platforms</span> they run on.
+      </h1>
+
+      <p class="lede">
+        I'm <strong>{SITE.name}</strong> — a Kubestronaut and Cloud, DevOps &amp; AI
+        Engineer. I ship <strong>apps</strong>, <strong>websites</strong> and
+        <strong>agentic AI workflows</strong>, and run them on self-healing
+        Kubernetes infrastructure with DevOps &amp; MLOps best practices.
+        Open to work <strong>anywhere in the world</strong>.
+      </p>
+
+      <div class="roles" aria-label="Specialisations">
+        <span class="role-label">build&gt;</span>
+        <span id="roleType" class="role-type"></span><span class="caret" aria-hidden="true"></span>
+      </div>
+
+      <div class="cta">
+        <a href={SITE.socials.linkedin} target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.3v1.6h.1c.5-.9 1.6-1.9 3.3-1.9 3.5 0 4.2 2.3 4.2 5.4v6.3ZM5.3 7.4a2 2 0 1 1 0-4.1 2 2 0 0 1 0 4.1ZM7.1 20.4H3.6V9h3.5v11.4ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></svg>
+          LinkedIn
+        </a>
+        <a href={SITE.cv} target="_blank" rel="noopener" class="btn">View resume</a>
+      </div>
+
+      <dl class="hero-stats">
+        {stats.map((s) => (
+          <div><dt>{s.value}</dt><dd>{s.label}</dd></div>
+        ))}
+      </dl>
+    </div>
+
+    <div class="hero-visual" data-reveal data-delay="2">
+      <div class="photo-card" id="tiltCard">
+        <div class="photo-shine" aria-hidden="true"></div>
+        <picture>
+          <source srcset={SITE.photo.webp} type="image/webp" />
+          <img src={SITE.photo.fallback} alt={SITE.photo.alt} width="420" height="372" loading="eager" decoding="async" />
+        </picture>
+        <div class="photo-badge" aria-hidden="true"><span>☸</span> Kubestronaut</div>
+        <div class="photo-ring" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-terminal" aria-hidden="true">
+        <div class="term-bar"><span></span><span></span><span></span><em>~/platform</em></div>
+        <pre class="term-body" id="termBody"></pre>
+      </div>
+    </div>
+  </div>
+  <a href="#about-strip" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+</section>
+
+<style>
+  .hero { position: relative; min-height: 100svh; display: flex; align-items: center; padding-block: 110px 90px; overflow: hidden; }
+  #heroCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.5; }
+  .hero-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+  .pulse { width: 8px; height: 8px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 0 rgba(52,211,153,0.6); animation: pulse 2.2s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); } 70% { box-shadow: 0 0 0 9px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+  h1 { margin: 22px 0 20px; }
+  .lede { font-size: clamp(1rem, 0.9rem + 0.5vw, 1.16rem); max-width: 54ch; color: var(--text-dim); }
+  .lede strong { color: var(--text); }
+  .roles { font-family: var(--font-mono); font-size: 1rem; margin: 24px 0 28px; color: var(--text); display: flex; align-items: center; gap: 10px; min-height: 1.6em; }
+  .role-label { color: var(--cyan); }
+  .caret { width: 9px; height: 1.1em; background: var(--cyan); display: inline-block; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-stats { display: flex; gap: 30px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--border); }
+  .hero-stats dt { font-family: var(--font-display); font-size: 1.8rem; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero-stats dd { font-size: 0.8rem; color: var(--text-faint); }
+
+  /* ---- 3D photo card ---- */
+  .hero-visual { position: relative; perspective: 1100px; }
+  .photo-card {
+    position: relative; width: min(100%, 420px); margin-inline: auto; border-radius: var(--radius-lg);
+    border: 1px solid var(--border-strong); overflow: hidden; transform-style: preserve-3d;
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,0.8), var(--glow-cyan);
+    transition: transform 0.25s var(--ease); will-change: transform;
+    background: var(--surface);
+  }
+  .photo-card img { width: 100%; display: block; aspect-ratio: 420 / 372; object-fit: cover; }
+  .photo-shine { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(255,255,255,0.18), transparent 45%); opacity: 0; transition: opacity 0.3s; }
+  .photo-card:hover .photo-shine { opacity: 1; }
+  .photo-badge { position: absolute; left: 14px; bottom: 14px; z-index: 3; transform: translateZ(40px); display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-display); font-size: 0.82rem; padding: 8px 14px; border-radius: 999px; color: #04121a; background: var(--grad-brand); box-shadow: 0 8px 24px -8px rgba(45,212,191,0.7); }
+  .photo-badge span { font-size: 1rem; }
+  .photo-ring { position: absolute; inset: -2px; z-index: 1; border-radius: inherit; padding: 2px; background: var(--grad-brand); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.5; }
+
+  .hero-terminal { position: relative; margin: -36px auto 0; width: min(100%, 380px); transform: translateX(8%); z-index: 4; background: rgba(6,9,16,0.92); border: 1px solid var(--border-strong); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
+  .term-bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+  .term-bar span { width: 10px; height: 10px; border-radius: 50%; background: #2a3242; }
+  .term-bar span:nth-child(1) { background: #fb7185; } .term-bar span:nth-child(2) { background: #fbbf24; } .term-bar span:nth-child(3) { background: #34d399; }
+  .term-bar em { margin-left: auto; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-faint); font-style: normal; }
+  .term-body { padding: 14px 16px; min-height: 150px; font-size: 0.78rem; line-height: 1.65; white-space: pre-wrap; }
+
+  .scroll-cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); width: 26px; height: 42px; border: 2px solid var(--border-strong); border-radius: 14px; display: grid; place-items: start center; padding-top: 7px; }
+  .scroll-cue span { width: 4px; height: 8px; border-radius: 2px; background: var(--cyan); animation: scroller 1.8s infinite; }
+  @keyframes scroller { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(14px); opacity: 0; } 100% { opacity: 0; } }
+
+  @media (max-width: 940px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { order: -1; }
+    .hero-terminal { transform: none; }
+  }
+  @media (max-width: 520px) { .hero-terminal { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .caret, .pulse, .scroll-cue span { animation: none; } }
+</style>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Rotating role typewriter ----
+  const roles = [
+    'mobile-apps', 'websites', 'agentic-ai-workflows',
+    'devops-platforms', 'kubernetes', 'ai-infrastructure', 'mlops-pipelines',
+  ];
+  const el = document.getElementById('roleType');
+  if (el) {
+    if (reduce) { el.textContent = roles[0]; }
+    else {
+      let r = 0, c = 0, deleting = false;
+      const tick = () => {
+        const word = roles[r];
+        c += deleting ? -1 : 1;
+        el.textContent = word.slice(0, c);
+        let delay = deleting ? 45 : 90;
+        if (!deleting && c === word.length) { delay = 1500; deleting = true; }
+        else if (deleting && c === 0) { deleting = false; r = (r + 1) % roles.length; delay = 350; }
+        setTimeout(tick, delay);
+      };
+      tick();
+    }
+  }
+
+  // ---- Terminal output ----
+  const term = document.getElementById('termBody');
+  const lines = [
+    { t: '$ npm run build && kubectl apply -k .', c: 'cmd' },
+    { t: 'app  ✔  built & containerised', c: 'ok' },
+    { t: 'web  ✔  deployed to edge CDN', c: 'ok' },
+    { t: 'agent ✔  workflow live', c: 'ok' },
+    { t: '$ argocd app sync platform', c: 'cmd' },
+    { t: 'Synced  ✔  reconciled from git', c: 'ok' },
+    { t: '# shipping, end to end ✦', c: 'comment' },
+  ];
+  const colors = { cmd: 'var(--cyan)', ok: '#34d399', dim: 'var(--text-faint)', comment: '#818cf8' };
+  if (term) {
+    if (reduce) {
+      term.innerHTML = lines.map((l) => `<span style="color:${colors[l.c]}">${l.t}</span>`).join('\n');
+    } else {
+      let i = 0;
+      const writeLine = () => {
+        if (i >= lines.length) { setTimeout(() => { term.innerHTML = ''; i = 0; writeLine(); }, 4000); return; }
+        const l = lines[i++];
+        const span = document.createElement('span');
+        span.style.color = colors[l.c];
+        term.appendChild(span);
+        let j = 0;
+        const type = () => {
+          span.textContent = l.t.slice(0, j++);
+          if (j <= l.t.length) setTimeout(type, 16);
+          else { term.appendChild(document.createTextNode('\n')); setTimeout(writeLine, 240); }
+        };
+        type();
+      };
+      writeLine();
+    }
+  }
+
+  // ---- 3D tilt on photo ----
+  const card = document.getElementById('tiltCard');
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (card && !reduce && fine) {
+    const MAX = 9;
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      card.style.transform = `rotateY(${(px - 0.5) * MAX * 2}deg) rotateX(${(0.5 - py) * MAX * 2}deg)`;
+      card.style.setProperty('--mx', `${px * 100}%`);
+      card.style.setProperty('--my', `${py * 100}%`);
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  }
+
+  // ---- Cluster-network canvas ----
+  const canvas = document.getElementById('heroCanvas');
+  if (canvas && !reduce) {
+    const ctx = canvas.getContext('2d');
+    let w, h, dpr, nodes = [], raf, running = true;
+    const COUNT = window.innerWidth < 700 ? 26 : 54;
+    const LINK = 150;
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    const init = () => {
+      nodes = Array.from({ length: COUNT }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.28, vy: (Math.random() - 0.5) * 0.28,
+        r: Math.random() * 1.6 + 1,
+      }));
+    };
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+        for (let k = i + 1; k < nodes.length; k++) {
+          const m = nodes[k], dx = n.x - m.x, dy = n.y - m.y;
+          const d = Math.hypot(dx, dy);
+          if (d < LINK) {
+            ctx.strokeStyle = `rgba(45,212,191,${0.16 * (1 - d / LINK)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(m.x, m.y); ctx.stroke();
+          }
+        }
+        ctx.fillStyle = 'rgba(56,189,248,0.7)';
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+      }
+      if (running) raf = requestAnimationFrame(draw);
+    };
+    const start = () => { if (!running) { running = true; draw(); } };
+    const stop = () => { running = false; cancelAnimationFrame(raf); };
+    resize(); init(); draw();
+    window.addEventListener('resize', () => { resize(); init(); }, { passive: true });
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  }
+</script>

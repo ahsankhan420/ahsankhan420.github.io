@@ -1,0 +1,36 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  date: Date;
+  category?: string;
+  readingTime?: string;
+  tags?: string[];
+  delay?: number;
+}
+const { href, title, description, date, category, readingTime, tags = [], delay = 0 } = Astro.props;
+const dateStr = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+<a href={href} class="card article" data-reveal data-delay={delay}>
+  <div class="meta">
+    {category && <span class="cat">{category}</span>}
+    <time datetime={date.toISOString()}>{dateStr}</time>
+    {readingTime && <span class="dot">·</span>}
+    {readingTime && <span>{readingTime}</span>}
+  </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  {tags.length > 0 && <div class="tag-list">{tags.slice(0, 3).map((t) => <span class="tag">#{t}</span>)}</div>}
+  <span class="read">Read article →</span>
+</a>
+
+<style>
+  .article { display: flex; flex-direction: column; gap: 12px; height: 100%; }
+  .meta { display: flex; align-items: center; gap: 10px; font-size: 0.8rem; color: var(--text-faint); font-family: var(--font-mono); }
+  .cat { color: var(--cyan); border: 1px solid var(--border); padding: 2px 9px; border-radius: 999px; }
+  .article p { font-size: 0.95rem; }
+  .tag-list { margin-top: auto; }
+  .read { color: var(--cyan); font-size: 0.9rem; font-family: var(--font-display); transition: letter-spacing 0.3s; }
+  .article:hover .read { letter-spacing: 0.03em; }
+</style>

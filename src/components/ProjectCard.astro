@@ -1,0 +1,48 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  summary: string;
+  stack?: string[];
+  domains?: string[];
+  impact?: { value: string; label: string }[];
+  delay?: number;
+}
+const { href, title, summary, stack = [], domains = [], impact = [], delay = 0 } = Astro.props;
+---
+<a href={href} class="card project" data-reveal data-delay={delay}>
+  <div class="project-top">
+    <div class="domains">
+      {domains.slice(0, 2).map((d) => <span class="tag">{d}</span>)}
+    </div>
+    <span class="arrow" aria-hidden="true">→</span>
+  </div>
+  <h3>{title}</h3>
+  <p class="summary">{summary}</p>
+
+  {impact.length > 0 && (
+    <div class="impact">
+      {impact.slice(0, 3).map((m) => (
+        <div class="impact-item"><strong>{m.value}</strong><span>{m.label}</span></div>
+      ))}
+    </div>
+  )}
+
+  {stack.length > 0 && (
+    <div class="tag-list stack">{stack.slice(0, 5).map((s) => <span class="tag">{s}</span>)}</div>
+  )}
+</a>
+
+<style>
+  .project { display: flex; flex-direction: column; gap: 14px; height: 100%; }
+  .project-top { display: flex; align-items: center; justify-content: space-between; }
+  .domains { display: flex; gap: 8px; }
+  .arrow { font-size: 1.3rem; color: var(--text-faint); transition: transform 0.3s var(--ease), color 0.3s; }
+  .project:hover .arrow { transform: translate(4px, -4px); color: var(--cyan); }
+  .summary { font-size: 0.96rem; }
+  .impact { display: flex; gap: 22px; padding: 16px 0; margin-top: auto; border-top: 1px solid var(--border); }
+  .impact-item { display: flex; flex-direction: column; }
+  .impact-item strong { font-family: var(--font-display); font-size: 1.35rem; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .impact-item span { font-size: 0.74rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .stack { margin-top: 4px; }
+</style>
